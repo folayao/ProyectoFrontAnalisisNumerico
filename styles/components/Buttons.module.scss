@@ -1,0 +1,87 @@
+@import "../Config.module.scss";
+
+.button-addFile-container {
+    .button-addFile-container__button {
+        font-family: "Roboto";
+        background-color: $azulClaro;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 3px 70px 3px 70px;
+        font-size: 15px;
+        box-shadow: 2px 2px 2px $azulOscuro;
+        border: none;
+        border-radius: 3px;
+        color: $blanco;
+        outline: none;
+        cursor: pointer;
+        .icon {
+            color: $blanco;
+            margin-left: 3px;
+        }
+        .button-addFile-container__button--input {
+            display: none;
+        }
+    }
+    .button-addFile-container__button:hover {
+        box-shadow: inset 1px 1px 1px $azulOscuro;
+    }
+    .button-addFile-container__button:active {
+        background-color: $azulclaro2;
+    }
+}
+
+.button-primary-container {
+    .button-primary-container__button {
+        font-family: "Roboto";
+        background-color: $azulClaro;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 3px 70px 3px 70px;
+        font-size: 15px;
+        box-shadow: 2px 2px 2px $azulOscuro;
+        border: none;
+        border-radius: 3px;
+        color: $blanco;
+        outline: none;
+        cursor: pointer;
+        .icon {
+            color: $blanco;
+            margin-left: 3px;
+        }
+    }
+    .button-primary-container__button:hover {
+        box-shadow: inset 1px 1px 1px $azulOscuro;
+    }
+    .button-primary-container__button:active {
+        background-color: $azulclaro2;
+    }
+}
+.button-secondary-container {
+    .button-secondary-container__button {
+        font-family: "Roboto";
+        background-color: $cobre;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 3px 70px 3px 70px;
+        font-size: 15px;
+        box-shadow: 2px 2px 2px $azulOscuro;
+        border: none;
+        border-radius: 3px;
+        color: $blanco;
+        outline: none;
+        cursor: pointer;
+        .icon {
+            color: $blanco;
+            margin-left: 3px;
+        }
+    }
+    .button-secondary-container__button:hover {
+        box-shadow: inset 1px 1px 1px $azulOscuro;
+    }
+    .button-secondary-container__button:active {
+        background-color: $osccobre;
+    }
+}
