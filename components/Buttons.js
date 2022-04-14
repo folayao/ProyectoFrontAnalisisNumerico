@@ -40,7 +40,6 @@ const PrimaryButton = ({ text, onclic }) => {
     <div className={styles['button-primary-container']}>
       <button className={styles['button-primary-container__button']} onClick={onclic}>
         {text}
-        <FontAwesomeIcon icon={icon} className={styles['icon']} />
       </button>
     </div>
   );

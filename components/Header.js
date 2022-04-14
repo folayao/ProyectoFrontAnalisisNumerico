@@ -41,8 +41,8 @@ const Header = () => {
               </Link>
             </li>
             <li className={styled['item-list']}>
-              <Link href='/'>
-                <h1 className={styled['item-list-h1']}>Metodo 2</h1>
+              <Link href='/raices_multiples'>
+                <h1 className={styled['item-list-h1']}>Raices Multiples</h1>
               </Link>
             </li>
             <li className={styled['item-list']}>
