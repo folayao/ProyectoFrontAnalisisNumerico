@@ -1,29 +1,37 @@
 import React from 'react';
 
-const TableGenerator = ({headers,table}) => {
+const TableGenerator = ({ headers, table }) => {
   return (
     <>
       <table class='tg'>
-        {headers.forEach((headItem) => {
-          return (
-            <>
-              <thead>
-                <tr>
-                  <th class='tg-0lax'>{headItem}</th>
-                </tr>
-              </thead>
-            </>
-          );
-        })}
-        <tbody>
+        <thead>
           <tr>
-            <td class='tg-0lax'></td>
-            <td class='tg-0lax'></td>
-            <td class='tg-0lax'></td>
-            <td class='tg-0lax'></td>
-            <td class='tg-0lax'></td>
-            <td class='tg-0lax'></td>
+            {headers.map((headItem) => {
+              console.log(headItem);
+              return (
+                <>
+                  <th className='tg-0lax'>{headItem}</th>
+                </>
+              );
+            })}
           </tr>
+        </thead>
+        <tbody>
+          {table.map((t) => {
+            return (
+              <>
+                <tr>
+                  {t.map((ite) => {
+                    return (
+                      <>
+                        <td className='tg-0lax'>{ite}</td>
+                      </>
+                    );
+                  })}
+                </tr>
+              </>
+            );
+          })}
         </tbody>
       </table>
     </>

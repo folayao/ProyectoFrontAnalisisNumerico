@@ -1,6 +1,16 @@
 import tabulate from 'tabulate';
-const raices_multiples = (consFunction, xi, tol, consFunctionSD, consFunctionTD, maxIter, tError) => {
-  console.log(f, 'funcion');
+import TableGenerator from './../../components/TableGenerator';
+const raices_multiples = ({
+  consFunction,
+  xi,
+  tol,
+  consFunctionSD,
+  consFunctionTD,
+  maxIter,
+  tError
+}) => {
+  console.log('_____ raices multiples js ______');
+  console.log(consFunction, xi, tol, consFunctionSD, consFunctionTD, maxIter, tError);
   let f = Function('x', 'return ' + consFunction);
   let fi = Function('x', 'return ' + consFunctionSD);
   let fii = Function('x', 'return ' + consFunctionTD);
@@ -30,15 +40,18 @@ const raices_multiples = (consFunction, xi, tol, consFunctionSD, consFunctionTD,
     }
 
     console.log(tabulate(table, headers));
-    
+    let result = tabulate(table, headers);
 
     if (error < tol) {
       console.log(`${xi} es raiz con tolerancia ${tol + '.1E'} en iter ${ite}`);
+      return <TableGenerator headers={headers} table={result.stream} />;
     } else {
       console.log('No llegamos');
     }
   }
 };
+
+export default raices_multiples;
 
 // f = (x) => {
 //   return math.exp(-x) - Math.pow(x, 2) * math.cos(2 * x - 4) + 6 * x + 3;
@@ -70,6 +83,3 @@ const raices_multiples = (consFunction, xi, tol, consFunctionSD, consFunctionTD,
 // };
 
 // raices_multiples(f, 0.5, 5e-7, fi, fii, 1000, 0);
-module.exports = {
-  raices_multiples,
-};
