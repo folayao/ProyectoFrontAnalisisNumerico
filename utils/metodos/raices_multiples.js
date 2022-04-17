@@ -52,34 +52,3 @@ const raices_multiples = ({
 };
 
 export default raices_multiples;
-
-// f = (x) => {
-//   return math.exp(-x) - Math.pow(x, 2) * math.cos(2 * x - 4) + 6 * x + 3;
-// };
-
-// fi = (x) => {
-//   return -math.exp(-x) - 2 * x * math.cos(2 * x - 4) - 2 * Math.pow(x, 2) * math.sin(2 * x - 4) + 6;
-// };
-
-// fii = (x) => {
-//   return (
-//     math.exp(-x) -
-//     4 * Math.pow(x, 2) * math.cos(2 * x - 4) +
-//     8 * x * math.sin(2 * x - 4) -
-//     2 * math.cos(2 * x - 4)
-//   );
-// };
-
-// f = (x) => {
-//   return x * math.exp(x) - math.exp(x) + 1;
-// };
-
-// fi = (x) => {
-//   return x * math.exp(x);
-// };
-
-// fii = (x) => {
-//   return x * math.exp(x) + math.exp(x);
-// };
-
-// raices_multiples(f, 0.5, 5e-7, fi, fii, 1000, 0);

@@ -36,8 +36,8 @@ const Header = () => {
         <nav className={styled['links-container']}>
           <ul className={styled['links-list']}>
             <li className={styled['item-list']}>
-              <Link href='/'>
-                <h1 className={styled['item-list-h1']}>Metodo 1</h1>
+              <Link href='/biseccion'>
+                <h1 className={styled['item-list-h1']}>Biseccion</h1>
               </Link>
             </li>
             <li className={styled['item-list']}>
@@ -46,13 +46,13 @@ const Header = () => {
               </Link>
             </li>
             <li className={styled['item-list']}>
-              <Link href='/'>
-                <h1 className={styled['item-list-h1']}>Metodo 2</h1>
+              <Link href='/busquedaincremental'>
+                <h1 className={styled['item-list-h1']}>Busqueda Incremental</h1>
               </Link>
             </li>
             <li className={styled['item-list']}>
-              <Link href='/'>
-                <h1 className={styled['item-list-h1']}>Metodo 3</h1>
+              <Link href='/newton'>
+                <h1 className={styled['item-list-h1']}>Newton</h1>
               </Link>
             </li>
             <li className={styled['item-list']}>

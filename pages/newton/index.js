@@ -6,20 +6,24 @@ import { ContainerInputs } from '../../components/Containers';
 import Inputs from '../../components/Inputs';
 import Biseccion from '../../utils/metodos/biseccion'
 import BusquedaIncremental from '../../utils/metodos/busqueda_incremental';
+import Newton from './../../utils/metodos/newton';
 const index = () => {
   const [consFunction, setconsFunction] = useState('');
+  const [consFunctionSD, setconsFunctionSD] = useState('');
   const [xi, setxi] = useState(0);
   const [maxIter, setmaxIter] = useState(0);
-  const [deltaX, setdeltaX] = useState(0);
+  const [tol, setTol] = useState(0);
   const [tError, settError] = useState(0);
   const [buttonShowTables, setButtonShowTables] = useState(false);
-  //consFunction, xi, maxIter, deltaX
+  //consFunction, xi, maxIter, tol
   const resetStates = () => {
     setButtonShowTables(false);
     setxi(0);
     setmaxIter(0);
     settError(0);
     setconsFunction('');
+    setTol(0);
+    setconsFunctionSD('');
   };
 
   return (
@@ -30,6 +34,13 @@ const index = () => {
           setFunction={setconsFunction}
           typeInput={'text'}
           value={consFunction}
+        />
+        <br />
+        <Inputs
+          labelTitle={'f \''}
+          setFunction={setconsFunctionSD}
+          typeInput={'text'}
+          value={consFunctionSD}
         />
         <br />
         <Inputs
@@ -47,10 +58,17 @@ const index = () => {
         />
         <br />
         <Inputs
-          labelTitle={'deltaX'}
-          setFunction={setdeltaX}
+          labelTitle={'tol'}
+          setFunction={setTol}
           typeInput={'number'}
-          value={deltaX}
+          value={tol}
+        />
+        <br />
+        <Inputs
+          labelTitle={'Tol error'}
+          setFunction={settError}
+          typeInput={'number'}
+          value={tError}
         />
       </ContainerInputs>
       <button
@@ -63,7 +81,7 @@ const index = () => {
       <button onClick={resetStates}>Restablecer</button>
       {buttonShowTables ? (
         <>
-          <BusquedaIncremental consFunction={consFunction} xi={0.5} maxIter={0.5} deltaX={5e-7}  />
+          <Newton consFunction={consFunction} consFunctionSD={consFunctionSD} xi={0.5} maxIter={0.5} tol={5e-7} tError={tError} />
         </>
       ) : (
         <>NADA</>

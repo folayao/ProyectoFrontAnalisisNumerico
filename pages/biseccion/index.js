@@ -1,24 +1,22 @@
 import MathJax from 'react-mathjax2';
 import React, { useState, useEffect } from 'react';
-import styles from '../../styles/pages/raices_multiples.module.scss';
-import RaicesMultiples from '../../utils/metodos/raices_multiples';
 import { ContainerInputs } from '../../components/Containers';
 import Inputs from '../../components/Inputs';
 import Biseccion from '../../utils/metodos/biseccion'
-import BusquedaIncremental from '../../utils/metodos/busqueda_incremental';
 const index = () => {
   const [consFunction, setconsFunction] = useState('');
   const [xi, setxi] = useState(0);
-  const [maxIter, setmaxIter] = useState(0);
-  const [deltaX, setdeltaX] = useState(0);
+  const [xf, setxf] = useState(0);
+  const [tol, setTol] = useState(0);
   const [tError, settError] = useState(0);
   const [buttonShowTables, setButtonShowTables] = useState(false);
-  //consFunction, xi, maxIter, deltaX
+
   const resetStates = () => {
     setButtonShowTables(false);
     setxi(0);
-    setmaxIter(0);
+    setxf(0);
     settError(0);
+    setTol(0);
     setconsFunction('');
   };
 
@@ -40,18 +38,26 @@ const index = () => {
         />
         <br />
         <Inputs
-          labelTitle={'maxIter'}
-          setFunction={setmaxIter}
+          labelTitle={'xf'}
+          setFunction={setxf}
           typeInput={'number'}
-          value={maxIter}
+          value={xf}
         />
         <br />
         <Inputs
-          labelTitle={'deltaX'}
-          setFunction={setdeltaX}
+          labelTitle={'tolerancia'}
+          setFunction={setTol}
           typeInput={'number'}
-          value={deltaX}
+          value={tol}
         />
+        <br />
+        <Inputs
+          labelTitle={'tolerancia Error'}
+          setFunction={settError}
+          typeInput={'number'}
+          value={tError}
+        />
+      <br />
       </ContainerInputs>
       <button
         onClick={() => {
@@ -63,7 +69,7 @@ const index = () => {
       <button onClick={resetStates}>Restablecer</button>
       {buttonShowTables ? (
         <>
-          <BusquedaIncremental consFunction={consFunction} xi={0.5} maxIter={0.5} deltaX={5e-7}  />
+          <Biseccion consFunction={consFunction} xi={0.5} xf={0.5} tol={5e-7} tError={0} />
         </>
       ) : (
         <>NADA</>
