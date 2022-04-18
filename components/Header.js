@@ -56,28 +56,27 @@ const Header = () => {
               </Link>
             </li>
             <li className={styled['item-list']}>
-              <Link href='/'>
-                <h1 className={styled['item-list-h1']}>Metodo 4</h1>
+              <Link href='/puntofijo'>
+                <h1 className={styled['item-list-h1']}>Punto Fijo</h1>
+              </Link>
+            </li>
+            <li className={styled['item-list']}>
+              <Link href='/puntofijo'>
+                <h1 className={styled['item-list-h1']}>Punto Fijo</h1>
+              </Link>
+            </li>
+            <li className={styled['item-list']}>
+              <Link href='/puntofijo'>
+                <h1 className={styled['item-list-h1']}>Punto Fijo</h1>
               </Link>
             </li>
             <li className={styled['item-list']}>
                 <FontAwesomeIcon icon={faGithub} className={styled['icon']} />
-              <Link href='https://github.com/folayao'  >
+              <Link href='https://github.com/folayao/ProyectoFrontAnalisisNumerico'  >
                 <h1 className={styled['item-list-h1']}>GitHub</h1>
               </Link>
             </li>
-            <li className={styled['item-list']}>
-                <FontAwesomeIcon icon={faTwitter} className={styled['icon']} />
-              <Link href='https://twitter.com/folayaodev'>
-                <h1 className={styled['item-list-h1']}>Twitter</h1>
-              </Link>
-            </li>{' '}
-            <li className={styled['item-list']}>
-                <FontAwesomeIcon icon={faInstagramSquare} className={styled['icon']} />
-              <Link href='https://www.instagram.com/f_ospina01/'>
-                <h1 className={styled['item-list-h1']}>Instagram</h1>
-              </Link>
-            </li>
+       
           </ul>
         </nav>
       </div>

@@ -1,12 +1,9 @@
 import React from 'react';
 
-const Inputs = ({labelTitle,value, setFunction, typeInput}) => {
-  console.log(labelTitle,":", value,setFunction,typeInput);
+const Inputs = ({ labelTitle, value, setFunction, typeInput }) => {
   return (
     <>
-      <label htmlFor=''>
-        {labelTitle}
-      </label>
+      <label htmlFor=''>{labelTitle}</label>
       <input
         type={typeInput}
         onChange={(e) => {
