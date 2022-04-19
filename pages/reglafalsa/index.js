@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import styles from '../../styles/pages/raices_multiples.module.scss';
+import RaicesMultiples from '../../utils/metodos/raices_multiples';
 import { ContainerInputs } from '../../components/Containers';
 import Inputs from '../../components/Inputs';
-import Newton from './../../utils/metodos/newton';
+import ReglaFalsa from '../../utils/metodos/regla_falsa';
+
 const index = () => {
-  const [consFunction, setconsFunction] = useState('');
-  const [consFunctionSD, setconsFunctionSD] = useState('');
+  const [constFunction, setconstFunction] = useState('');
   const [xi, setxi] = useState(0);
-  const [maxIter, setmaxIter] = useState(0);
+  const [xf, setxf] = useState(0);
   const [tol, setTol] = useState(0);
   const [tError, settError] = useState(0);
   const [buttonShowTables, setButtonShowTables] = useState(false);
-  //consFunction, xi, maxIter, tol
+  //constFunction, xi, xf, tol
   const resetStates = () => {
     setButtonShowTables(false);
     setxi(0);
-    setmaxIter(0);
+    setxf(0);
     settError(0);
-    setconsFunction('');
+    setconstFunction('');
     setTol(0);
-    setconsFunctionSD('');
   };
 
   return (
@@ -26,16 +27,9 @@ const index = () => {
       <ContainerInputs>
         <Inputs
           labelTitle={'f'}
-          setFunction={setconsFunction}
+          setFunction={setconstFunction}
           typeInput={'text'}
-          value={consFunction}
-        />
-        <br />
-        <Inputs
-          labelTitle={'f \''}
-          setFunction={setconsFunctionSD}
-          typeInput={'text'}
-          value={consFunctionSD}
+          value={constFunction}
         />
         <br />
         <Inputs
@@ -46,10 +40,10 @@ const index = () => {
         />
         <br />
         <Inputs
-          labelTitle={'maxIter'}
-          setFunction={setmaxIter}
+          labelTitle={'xf'}
+          setFunction={setxf}
           typeInput={'number'}
-          value={maxIter}
+          value={xf}
         />
         <br />
         <Inputs
@@ -76,7 +70,7 @@ const index = () => {
       <button onClick={resetStates}>Restablecer</button>
       {buttonShowTables ? (
         <>
-          <Newton consFunction={consFunction} consFunctionSD={consFunctionSD} xi={xi} maxIter={maxIter} tol={tol} tError={tError} />
+          <ReglaFalsa constFunction={constFunction} xi={xi} xf={xf} tol={tol} tError={tError} />
         </>
       ) : (
         <>NADA</>

@@ -61,13 +61,13 @@ const Header = () => {
               </Link>
             </li>
             <li className={styled['item-list']}>
-              <Link href='/puntofijo'>
-                <h1 className={styled['item-list-h1']}>Punto Fijo</h1>
+              <Link href='/secante'>
+                <h1 className={styled['item-list-h1']}>Secante</h1>
               </Link>
             </li>
             <li className={styled['item-list']}>
-              <Link href='/puntofijo'>
-                <h1 className={styled['item-list-h1']}>Punto Fijo</h1>
+              <Link href='/reglafalsa'>
+                <h1 className={styled['item-list-h1']}>Regla falsa</h1>
               </Link>
             </li>
             <li className={styled['item-list']}>

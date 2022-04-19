@@ -63,7 +63,7 @@ const index = () => {
       <button onClick={resetStates}>Restablecer</button>
       {buttonShowTables ? (
         <>
-          <BusquedaIncremental consFunction={consFunction} xi={0.5} maxIter={0.5} deltaX={5e-7}  />
+          <BusquedaIncremental consFunction={consFunction} xi={xi} maxIter={maxIter} deltaX={deltaX}  />
         </>
       ) : (
         <>NADA</>

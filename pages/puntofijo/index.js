@@ -35,7 +35,7 @@ const index = () => {
         />
         <br />
         <Inputs
-          labelTitle={'f \''}
+          labelTitle={'g'}
           setFunction={setconstFunctionG}
           typeInput={'text'}
           value={constFunctionG}
@@ -79,7 +79,7 @@ const index = () => {
       <button onClick={resetStates}>Restablecer</button>
       {buttonShowTables ? (
         <>
-          <PuntoFijo constFunction={constFunction} constFunctionG={constFunctionG} xi={0.5} maxIter={0.5} tol={5e-7} tError={tError} />
+          <PuntoFijo constFunction={constFunction} constFunctionG={constFunctionG} xi={xi} maxIter={maxIter} tol={tol} tError={tError} />
         </>
       ) : (
         <>NADA</>

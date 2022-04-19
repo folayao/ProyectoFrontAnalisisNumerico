@@ -69,7 +69,7 @@ const index = () => {
       <button onClick={resetStates}>Restablecer</button>
       {buttonShowTables ? (
         <>
-          <Biseccion consFunction={consFunction} xi={0.5} xf={0.5} tol={5e-7} tError={0} />
+          <Biseccion consFunction={consFunction} xi={xi} xf={xf} tol={tol} tError={0} />
         </>
       ) : (
         <>NADA</>
