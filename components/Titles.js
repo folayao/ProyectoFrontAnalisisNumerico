@@ -7,7 +7,6 @@ const Title = () => {
         <div className={styles['title-container']}>
           <h1 className={styles['title-container__title']}>
             ToA4
-            <FontAwesomeIcon icon={faImages} className={styles['icon']} />
           </h1>
         </div>
       </section>

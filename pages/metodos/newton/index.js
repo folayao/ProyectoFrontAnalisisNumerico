@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ContainerInputs } from '../../components/Containers';
-import Inputs from '../../components/Inputs';
-import Newton from './../../utils/metodos/newton';
-const index = () => {
+import { ContainerInputs } from '../../../components/Containers';
+import Inputs from '../../../components/Inputs';
+import Newton from '../../../utils/metodos/newton';
+const Index  = () => {
   const [consFunction, setconsFunction] = useState('');
   const [consFunctionSD, setconsFunctionSD] = useState('');
   const [xi, setxi] = useState(0);
@@ -85,4 +85,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index ;

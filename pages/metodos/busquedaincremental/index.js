@@ -1,12 +1,8 @@
-import MathJax from 'react-mathjax2';
 import React, { useState, useEffect } from 'react';
-import styles from '../../styles/pages/raices_multiples.module.scss';
-import RaicesMultiples from '../../utils/metodos/raices_multiples';
-import { ContainerInputs } from '../../components/Containers';
-import Inputs from '../../components/Inputs';
-import Biseccion from '../../utils/metodos/biseccion'
-import BusquedaIncremental from '../../utils/metodos/busqueda_incremental';
-const index = () => {
+import { ContainerInputs } from '../../../components/Containers';
+import Inputs from '../../../components/Inputs';
+import BusquedaIncremental from '../../../utils/metodos/busqueda_incremental';
+const Index = () => {
   const [consFunction, setconsFunction] = useState('');
   const [xi, setxi] = useState(0);
   const [maxIter, setmaxIter] = useState(0);
@@ -72,4 +68,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

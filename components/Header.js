@@ -36,37 +36,37 @@ const Header = () => {
         <nav className={styled['links-container']}>
           <ul className={styled['links-list']}>
             <li className={styled['item-list']}>
-              <Link href='/biseccion'>
+              <Link href='/metodos/biseccion'>
                 <h1 className={styled['item-list-h1']}>Biseccion</h1>
               </Link>
             </li>
             <li className={styled['item-list']}>
-              <Link href='/raices_multiples'>
+              <Link href='/metodos/raices_multiples'>
                 <h1 className={styled['item-list-h1']}>Raices Multiples</h1>
               </Link>
             </li>
             <li className={styled['item-list']}>
-              <Link href='/busquedaincremental'>
+              <Link href='/metodos/busquedaincremental'>
                 <h1 className={styled['item-list-h1']}>Busqueda Incremental</h1>
               </Link>
             </li>
             <li className={styled['item-list']}>
-              <Link href='/newton'>
+              <Link href='/metodos/newton'>
                 <h1 className={styled['item-list-h1']}>Newton</h1>
               </Link>
             </li>
             <li className={styled['item-list']}>
-              <Link href='/puntofijo'>
+              <Link href='/metodos/puntofijo'>
                 <h1 className={styled['item-list-h1']}>Punto Fijo</h1>
               </Link>
             </li>
             <li className={styled['item-list']}>
-              <Link href='/secante'>
+              <Link href='/metodos/secante'>
                 <h1 className={styled['item-list-h1']}>Secante</h1>
               </Link>
             </li>
             <li className={styled['item-list']}>
-              <Link href='/reglafalsa'>
+              <Link href='/metodos/reglafalsa'>
                 <h1 className={styled['item-list-h1']}>Regla falsa</h1>
               </Link>
             </li>

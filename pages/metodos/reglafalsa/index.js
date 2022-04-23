@@ -1,27 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../../styles/pages/raices_multiples.module.scss';
-import RaicesMultiples from '../../utils/metodos/raices_multiples';
-import { ContainerInputs } from '../../components/Containers';
-import Inputs from '../../components/Inputs';
-import PuntoFijo from '../../utils/metodos/punto_fijo';
+import { ContainerInputs } from '../../../components/Containers';
+import Inputs from '../../../components/Inputs';
+import ReglaFalsa from '../../../utils/metodos/regla_falsa';
 
-const index = () => {
+const Index = () => {
   const [constFunction, setconstFunction] = useState('');
-  const [constFunctionG, setconstFunctionG] = useState('');
   const [xi, setxi] = useState(0);
-  const [maxIter, setmaxIter] = useState(0);
+  const [xf, setxf] = useState(0);
   const [tol, setTol] = useState(0);
   const [tError, settError] = useState(0);
   const [buttonShowTables, setButtonShowTables] = useState(false);
-  //constFunction, xi, maxIter, tol
+  //constFunction, xi, xf, tol
   const resetStates = () => {
     setButtonShowTables(false);
     setxi(0);
-    setmaxIter(0);
+    setxf(0);
     settError(0);
     setconstFunction('');
     setTol(0);
-    setconstFunctionG('');
   };
 
   return (
@@ -35,13 +31,6 @@ const index = () => {
         />
         <br />
         <Inputs
-          labelTitle={'g'}
-          setFunction={setconstFunctionG}
-          typeInput={'text'}
-          value={constFunctionG}
-        />
-        <br />
-        <Inputs
           labelTitle={'xi'}
           setFunction={setxi}
           typeInput={'number'}
@@ -49,10 +38,10 @@ const index = () => {
         />
         <br />
         <Inputs
-          labelTitle={'maxIter'}
-          setFunction={setmaxIter}
+          labelTitle={'xf'}
+          setFunction={setxf}
           typeInput={'number'}
-          value={maxIter}
+          value={xf}
         />
         <br />
         <Inputs
@@ -79,7 +68,7 @@ const index = () => {
       <button onClick={resetStates}>Restablecer</button>
       {buttonShowTables ? (
         <>
-          <PuntoFijo constFunction={constFunction} constFunctionG={constFunctionG} xi={xi} maxIter={maxIter} tol={tol} tError={tError} />
+          <ReglaFalsa constFunction={constFunction} xi={xi} xf={xf} tol={tol} tError={tError} />
         </>
       ) : (
         <>NADA</>
@@ -88,4 +77,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

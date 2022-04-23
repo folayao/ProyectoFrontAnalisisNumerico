@@ -3,7 +3,7 @@ import React from 'react';
 const TableGenerator = ({ headers, table }) => {
   return (
     <>
-      <table class='tg'>
+      <table className='tg'>
         <thead>
           <tr>
             {headers.map((headItem) => {

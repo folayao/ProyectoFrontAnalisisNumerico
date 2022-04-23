@@ -1,27 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import styles from '../../styles/pages/raices_multiples.module.scss';
-import RaicesMultiples from '../../utils/metodos/raices_multiples';
-import { ContainerInputs } from '../../components/Containers';
-import Inputs from '../../components/Inputs';
-import ReglaFalsa from '../../utils/metodos/regla_falsa';
-import Secante from '../../utils/metodos/secante';
-
-const index = () => {
-  const [constFunction, setconstFunction] = useState('');
-  const [x1, setx1] = useState(0);
+import React, { useState } from 'react';
+import { ContainerInputs } from '../../../components/Containers';
+import Inputs from '../../../components/Inputs';
+import Biseccion from '../../../utils/metodos/biseccion'
+const Index = () => {
+  const [consFunction, setconsFunction] = useState('');
+  const [xi, setxi] = useState(0);
   const [xf, setxf] = useState(0);
   const [tol, setTol] = useState(0);
-  const [maxIter, setMaxIter] = useState(0);
   const [tError, settError] = useState(0);
   const [buttonShowTables, setButtonShowTables] = useState(false);
-  //constFunction, x1, xf, tol
+
   const resetStates = () => {
     setButtonShowTables(false);
-    setx1(0);
+    setxi(0);
     setxf(0);
     settError(0);
-    setconstFunction('');
     setTol(0);
+    setconsFunction('');
   };
 
   return (
@@ -29,16 +24,16 @@ const index = () => {
       <ContainerInputs>
         <Inputs
           labelTitle={'f'}
-          setFunction={setconstFunction}
+          setFunction={setconsFunction}
           typeInput={'text'}
-          value={constFunction}
+          value={consFunction}
         />
         <br />
         <Inputs
-          labelTitle={'x1'}
-          setFunction={setx1}
+          labelTitle={'xi'}
+          setFunction={setxi}
           typeInput={'number'}
-          value={x1}
+          value={xi}
         />
         <br />
         <Inputs
@@ -49,25 +44,19 @@ const index = () => {
         />
         <br />
         <Inputs
-          labelTitle={'tol'}
+          labelTitle={'tolerancia'}
           setFunction={setTol}
           typeInput={'number'}
           value={tol}
         />
         <br />
         <Inputs
-          labelTitle={'Max Iter'}
-          setFunction={setMaxIter}
-          typeInput={'number'}
-          value={maxIter}
-        />
-        <br />
-        <Inputs
-          labelTitle={'Tol error'}
+          labelTitle={'tolerancia Error'}
           setFunction={settError}
           typeInput={'number'}
           value={tError}
         />
+      <br />
       </ContainerInputs>
       <button
         onClick={() => {
@@ -79,7 +68,7 @@ const index = () => {
       <button onClick={resetStates}>Restablecer</button>
       {buttonShowTables ? (
         <>
-          <Secante constFunction={constFunction} x1={x1} xf={xf} tol={tol} maxIter={maxIter} tError={tError} />
+          <Biseccion consFunction={consFunction} xi={xi} xf={xf} tol={tol} tError={0} />
         </>
       ) : (
         <>NADA</>
@@ -88,4 +77,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
