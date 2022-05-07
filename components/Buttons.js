@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
  *  .button-add-container{
         .button-add-container__button{
             .button-add-container__button--input{
-                display: none;
+                display: none;  
             }
         }
         .button-add-container__button:hover{
