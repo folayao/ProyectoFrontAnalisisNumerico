@@ -1,4 +1,5 @@
 import React from 'react';
+import index from '../pages/metodos/eliminaciongaussiana/index';
 
 const MatrixReader = () => {
   let matrix = [[1,2,3,4], [1,2,3,4], [1,2,3,4], [1,2,3,4]];
@@ -12,7 +13,7 @@ const MatrixReader = () => {
                 matrix.map((headerVariable, index) => {
                     console.log(index);
                     return (
-                        <th >
+                        <th key={`head-${index}`}>
                             X {index}
                         </th>
                     )
@@ -25,11 +26,11 @@ const MatrixReader = () => {
                 matrix.map((headerVariable, index) => {
                     console.log(index);
                     return (
-                        <tr >
+                        <tr key={`${index}-tr`}>
                             {
-                                headerVariable.map(input=>{
+                                headerVariable.map((input, index)=>{
                                     return(
-                                        <td>
+                                        <td key={`${index}-td`}>
                                             <input/>
                                         </td>
                                     )
