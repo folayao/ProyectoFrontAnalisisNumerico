@@ -8,8 +8,7 @@ const MatrixReader = () => {
   const [matrixY, setmatrixY] = useState([]);
 
   return (
-    <>
-      
+    <>      
       <table summary='Los grupos de música punk más famosos del Reino Unido'>
         <thead>
           <tr>
