@@ -3,14 +3,13 @@ import index from '../pages/metodos/eliminaciongaussiana/index';
 import Inputs from '../components/Inputs';
 
 const MatrixReader = () => {
-  let matrix = Math.matrix();
-  const [matrixX, setmatrixX] = useState(2);
-  const [matrixY, setmatrixY] = useState(2);
+ 
+  const [matrixX, setmatrixX] = useState([]);
+  const [matrixY, setmatrixY] = useState([]);
 
   return (
     <>
-      <Inputs labelTitle={'x'} setFunction={setmatrixX} typeInput={'X'} value={matrixX} />
-      <Inputs labelTitle={'y'} setFunction={setmatrixY} typeInput={'Y'} value={matrixY} />
+      
       <table summary='Los grupos de música punk más famosos del Reino Unido'>
         <thead>
           <tr>
