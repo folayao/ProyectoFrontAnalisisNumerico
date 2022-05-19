@@ -6,6 +6,7 @@ const MatrixReader = () => {
  
   const [matrix, setmatrixX] = useState([]);
 
+  
   return (
     <>      
       <table summary='Los grupos de música punk más famosos del Reino Unido'>
@@ -18,7 +19,7 @@ const MatrixReader = () => {
           </tr>
         </thead>
         <tbody>
-          {matrixX.map((headerVariable, index) => {
+          {matrix.map((headerVariable, index) => {
             console.log(index);
             return (
               <tr key={`${index}-tr`}>
