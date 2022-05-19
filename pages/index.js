@@ -11,23 +11,7 @@ const Home = () => {
   return (
     <body>
       <div className={styles['index-container']}>
-        <section id='title'>
-          <div className={styles['title-container']}>
-            <h1 className={styles['title-container__title']}>
-              ToA4
-              <FontAwesomeIcon icon={faImages} className={styles['icon']} />
-            </h1>
-          </div>
-        </section>
-        <input type='text' />
-        <input type='text' />
-        <input type='text' />
-        <input type='text' />
-        <input type='text' />
-        <input type='text' />
-        <section id='button-add-container'>
-          <PrimaryButton text='Calcular' />
-        </section>
+        ANALISIS NUMERICO - 2022-1
       </div>
     </body>
   );
