@@ -4,8 +4,7 @@ import Inputs from '../components/Inputs';
 
 const MatrixReader = () => {
  
-  const [matrixX, setmatrixX] = useState([]);
-  const [matrixY, setmatrixY] = useState([]);
+  const [matrix, setmatrixX] = useState([]);
 
   return (
     <>      
@@ -19,7 +18,7 @@ const MatrixReader = () => {
           </tr>
         </thead>
         <tbody>
-          {matrix.map((headerVariable, index) => {
+          {matrixX.map((headerVariable, index) => {
             console.log(index);
             return (
               <tr key={`${index}-tr`}>
