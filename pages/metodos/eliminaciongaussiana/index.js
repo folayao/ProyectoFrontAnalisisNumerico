@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ContainerInputs } from '../../../components/Containers';
+import Inputs from '../../../components/Inputs';
 import MatrixReader from './../../../components/MatrixReader';
 
 const Index = () => {
@@ -7,7 +8,7 @@ const Index = () => {
   const [yMatrixLength, setYMatrixLength] = useState(2);
   const [matrix, setmatrix] = useState(null);
   const [showMatriz, setshowMatriz] = useState(false);
-
+  const [vti, setVti] = useState(false);
   const CreateMatrix = (e) => {
     e.preventDefault();
     let arrayToSet = new Array();
@@ -19,31 +20,49 @@ const Index = () => {
       }
       arrayToSet.push(row);
     }
-
     setmatrix(arrayToSet);
-    console.log(matrix);
     setshowMatriz(true);
   };
 
+  const agregarVTI = (e) => {
+    if (yMatrixLength > 0) {
+      if (vti == false) {
+        setVti(true);
+        setYMatrixLength(yMatrixLength + 1);
+        setshowMatriz(false);
+      }
+
+      if (vti == true) {
+        setVti(false);
+        setYMatrixLength(yMatrixLength - 1);
+        setshowMatriz(false);
+      }
+    }
+  };
   return (
     <>
       <ContainerInputs>
-        <input
-          type='number'
-          onChange={(e) => setXMatrixLength(e.target.value)}
+        <Inputs
+          labelTitle={'FILAS'}
+          typeInput='number'
+          setFunction={setXMatrixLength}
           value={xMatrixLength}
         />
-        <input
-          type='number'
-          onChange={(e) => setYMatrixLength(e.target.value)}
+        <Inputs
+          labelTitle={'COLUMNAS'}
+          typeInput='number'
+          setFunction={setYMatrixLength}
           value={yMatrixLength}
         />
+        <button type='button' onClick={agregarVTI}>
+          Agregar vector de terminos independientes
+        </button>
         <button onClick={CreateMatrix} type>
           {' '}
           CREAR MATRIZ
         </button>
 
-        {showMatriz != false ? <MatrixReader matrix={matrix} /> : null}
+        {showMatriz != false ? <MatrixReader matrix={matrix} headersN={yMatrixLength}/> : null}
       </ContainerInputs>
     </>
   );

@@ -1,28 +1,33 @@
 import { React, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 
-const MatrixReader = ({ matrix }) => {
+const MatrixReader = ({ matrix, headersN }) => {
   console.log('LA MATRIZ', matrix);
   const form = useRef(null);
   const { register, handleSubmit, getValues } = useForm({});
 
   const onSubmit = () => {
-    let values = getValues()
+    let values = getValues();
     console.log(values);
   };
-
   return (
     <>
-      <form >
+      <form>
         <table summary='Los grupos de música punk más famosos del Reino Unido'>
           <thead>
             <tr>
               {matrix == undefined
                 ? null
-                : matrix.map((headerVariable, index) => {
-                    console.log(index);
-                    return <th key={`head-${index}`}>X{index}</th>;
-                  })}
+                : (headersN) => {
+                    for (let index = 0; index < headersN; index++) {
+                      console.log(index);
+                      if (index == headersN) {
+                        return <th key={`head-${index}`}>X{index}</th>;
+                        
+                      }
+                      return <th key={`head-${index}`}>X{index}</th>;
+                    }
+                  }}
             </tr>
           </thead>
           <tbody>
@@ -44,9 +49,9 @@ const MatrixReader = ({ matrix }) => {
                 })}
           </tbody>
         </table>
-      <button type='button' onClick={onSubmit}>
-        REALIZAR CALCULO
-      </button>
+        <button type='button' onClick={onSubmit}>
+          REALIZAR CALCULO
+        </button>
       </form>
     </>
   );
