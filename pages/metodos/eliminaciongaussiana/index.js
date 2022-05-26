@@ -19,9 +19,10 @@ const Index = () => {
       }
       arrayToSet.push(row);
     }
+
     setmatrix(arrayToSet);
-    setshowMatriz(true);
     console.log(matrix);
+    setshowMatriz(true);
   };
 
   return (
