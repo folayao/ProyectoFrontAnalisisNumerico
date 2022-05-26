@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ContainerInputs } from '../../../components/Containers';
 import MatrixReader from './../../../components/MatrixReader';
 
-const index = () => {
+const Index = () => {
   const [xMatrixLength, setXMatrixLength] = useState(2);
   const [yMatrixLength, setYMatrixLength] = useState(2);
   const [matrix, setmatrix] = useState(null);
-  const [showMatriz, setshowMatriz] = useState(false)
+  const [showMatriz, setshowMatriz] = useState(false);
 
-  const createMatrix = (e) => {
+  const CreateMatrix = (e) => {
     e.preventDefault();
     let arrayToSet = new Array();
     for (let rowIndex = 0; rowIndex < xMatrixLength; rowIndex++) {
@@ -37,7 +37,7 @@ const index = () => {
           onChange={(e) => setYMatrixLength(e.target.value)}
           value={yMatrixLength}
         />
-        <button onClick={createMatrix} type>
+        <button onClick={CreateMatrix} type>
           {' '}
           CREAR MATRIZ
         </button>
@@ -48,4 +48,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

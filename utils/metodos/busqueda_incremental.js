@@ -2,8 +2,9 @@ import tabulate from 'tabulate';
 import TableGenerator from '../../components/TableGenerator';
 
 function BusquedaIncremental({consFunction, xi, maxIter, deltaX}) {
-    let funcion = Function('x', 'return ' + consFunction);
-    var headers, ite, table, xf;
+    let funcion = Function('x', 'return ' + consFunction); //LAMDA
+    console.log("FUNCION BUSQUEDA INCREMENTAL", funcion);
+    let headers, ite, table, xf;
     headers = ["ite", "x", "f(x)"];
     table = [];
   
@@ -11,20 +12,20 @@ function BusquedaIncremental({consFunction, xi, maxIter, deltaX}) {
         console.log(`${xi} es raiz`);
         return <h1>{`${xi} es raiz`}</h1>
     } else {
-      xf = xi + deltaX;
+      xf = parseInt(xi + deltaX);
       ite = 0;
-      table.push([ite, xi, funcion(xi)]);
+      table.push([ite, parseInt(xi), parseInt(funcion(xi))]);
   
       while (funcion(xi) * funcion(xf) > 0 && ite < maxIter) {
-        xi = xf;
-        xf = xi + deltaX;
+        console.log(xi, xf, ite, table)
+        xi = parseInt(xf);
+        xf =parseInt(xi)+ parseInt(deltaX);
         ite += 1;
-        table.push([ite, xi, funcion(xi)]);
+        table.push([ite, parseInt(xi), Number(funcion(xi))]);
       }
-  
       ite += 1;
-      table.push([ite, xf, funcion(xf)]);
-      console.log(tabulate(table, headers));
+      
+      table.push([ite, parseInt(xf), parseInt(funcion(xf))]);
       let resultado = tabulate(table, headers)
 
       return <TableGenerator headers={headers} table={resultado.stream}/>

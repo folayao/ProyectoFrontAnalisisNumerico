@@ -18,31 +18,31 @@ const raices_multiples = ({
   headers = ['ite', 'x', 'f(x)', 'fi(x)', 'fii(x)', 'Error'];
   table = [];
 
-  if (f(xi) === 0) {
+  if (f(parseFloat(xi)) === 0) {
     console.log(`El valor ${xi} es raiz`);
   } else {
     ite = 0;
-    error = tol + 1;
-    table.push([ite, xi, f(xi), fi(xi), fii(xi), error]);
+    error = parseFloat(tol) + 1;
+    table.push([parseInt(ite), parseFloat(xi), f(parseFloat(xi)), fi(parseFloat(xi)), fii(parseFloat(xi)), parseFloat(error)]);
 
-    while (error >= tol && ite < maxIter) {
-      xn = xi - (f(xi) * fi(xi)) / (Math.pow(fi(xi), 2) - f(xi) * fii(xi));
+    while (parseFloat(error) >= parseFloat(tol) && parseInt(ite) < parseFloat(maxIter)) {
+      xn = parseFloat(xi) - (f(parseFloat(xi)) * fi(parseFloat(xi))) / (Math.pow(fi(parseFloat(xi)), 2) - f(parseFloat(xi)) * fii(parseFloat(xi)));
 
       if (tError === 0) {
-        error = Math.abs(xn - xi);
+        error = Math.abs(parseFloat(xn) - parseFloat(xi));
       } else {
-        error = Math.abs((xn - xi) / xn);
+        error = Math.abs((parseFloat(xn) - parseFloat(xi)) / parseFloat(xn));
       }
 
       ite += 1;
-      xi = xn;
-      table.push([ite, xi, f(xi), fi(xi), fii(xi), error]);
+      xi = parseFloat(xn);
+      table.push([parent(ite), parseFloat(xi), f(parseFloat(xi)), fi(parseFloat(xi)), fii(parseFloat(xi)), error]);
     }
 
     console.log(tabulate(table, headers));
     let result = tabulate(table, headers);
 
-    if (error < tol) {
+    if (parseFloat(error) < parseFloat(tol)) {
       console.log(`${xi} es raiz con tolerancia ${tol + '.1E'} en iter ${ite}`);
       return <TableGenerator headers={headers} table={result.stream} />;
     } else {

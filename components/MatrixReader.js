@@ -1,20 +1,19 @@
-import { React, useState, useEffect, useRef} from 'react';
+import { React, useRef} from 'react';
 import index from '../pages/metodos/eliminaciongaussiana/index';
 import Inputs from '../components/Inputs';
-import MatrixInput from './MatrixInput';
 
 const MatrixReader = ({ matrix }) => {
   console.log('LA MATRIZ', matrix);
   const form = useRef(null);
 
-  const submit = (e) => {
+  const Submit = (e) => {
     e.preventDefault();
     const data = new FormData(form.current);
     console.log(data, "DATA");
   };
   return (
     <>
-    <form ref={form} onSubmit={submit}>
+    <form ref={form} onSubmit={Submit}>
       <table summary='Los grupos de música punk más famosos del Reino Unido'>
         <thead>
           <tr>
@@ -46,7 +45,7 @@ const MatrixReader = ({ matrix }) => {
         </tbody>
       </table>
           </form>
-          <button type='submit' onClick={submit}>REALIZAR CALCULO</button>
+          <button type='submit' onClick={Submit}>REALIZAR CALCULO</button>
     </>
   );
 };

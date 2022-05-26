@@ -6,43 +6,43 @@ function Secante({constFunction, x0, x1, tol, maxIter, tError}) {
   headers = ['ite', 'x', 'f(x)', 'Error'];
   table = [];
 
-  if (f(x0) === 0) {
+  if (f(parseFloat(x0)) === 0) {
     console.log(`El valor ${x0} es raiz`);
   } else {
     ite = 0;
-    error = tol + 1;
-    den = f(x1) - f(x0);
-    table.push([ite, x0, f(x0), error]);
+    error = parseFloat(tol) + 1;
+    den = f(parseFloat(x1)) - f(parseFloat(x0));
+    table.push([parseInt(ite), parseFloat(x0), f(parseFloat(x0)), parseFloat(error)]);
     ite += 1;
-    table.push([ite, x1, f(x1), error]);
+    table.push([parseInt(ite), parseFloat(x1), f(parseFloat(x1)), parseFloat(error)]);
 
-    while (error >= tol && f(x1) !== 0 && den !== 0 && ite < maxIter) {
-      x2 = x1 - (f(x1) * (x1 - x0)) / den;
+    while (parseFloat(error) >= tol && f(parseFloat(x1)) !== 0 && parseFloat(den) !== 0 && parseInt(ite) < parseInt(maxIter)) {
+      x2 = parseFloat(x1) - (f(parseFloat(x1)) * (parseFloat(x1) - x0)) / parseFloat(den);
 
       if (tError === 0) {
-        error = Math.abs(x2 - x1);
+        error = Math.abs(parseFloat(x2) - parseFloat(x1));
       } else {
-        error = Math.abs((x2 - x1) / x2);
+        error = Math.abs((parseFloat(x2) - parseFloat(x1)) / parseFloat(x2));
       }
 
-      x0 = x1;
-      x1 = x2;
-      den = f(x1) - f(x0);
+      x0 = parseFloat(x1);
+      x1 = parseFloat(x2);
+      den = f(parseFloat(x1)) - f(parseFloat(x0));
       ite += 1;
-      table.push([ite, x1, f(x1), error + '.1E']);
+      table.push([parseInt(ite), parseFloat(x1), f(parseFloat(x1)), parseFloat(error) + '.1E']);
     }
 
     console.log(tabulate(table, headers));
     let result = tabulate(table, headers);
 
-    if (f(x1) === 0) {
+    if (f(parseFloat(x1)) == 0) {
       console.log(`El valor ${x1} es raiz`);
     } else {
-      if (error < tol) {
+      if (parseFloat(error) < parseFloat(tol)) {
         console.log(`${x1} es raiz con tolerancia ${format(tol, '.1E')} en iter ${ite}`);
         return <TableGenerator headers={headers} table={result} />
       } else {
-        if (den === 0) {
+        if (parseFloat(den) === 0) {
           console.log(`Hay una posible raiz multiple`);
           return <h1>Hay una posible raiz multiple</h1>
         } else {

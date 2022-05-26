@@ -12,26 +12,26 @@ function PuntoFijo({ constFunction, xi, tol, constFunctionG, maxIter, tError }) 
     return <h1>{`El valor ${xi} es raiz`}</h1>;
   } else {
     ite = 0;
-    error = tol + 1;
-    table.push([ite, xi, error]);
+    error = parseFloat(tol) + 1;
+    table.push([parseInt(ite), parseFloat(xi), parseFloat(error)]);
 
-    while (error >= tol && ite < maxIter) {
-      xn = g(xi);
+    while (parseFloat(error) >= parseFloat(tol) && parseInt(ite) < parseInt(maxIter)) {
+      xn = g(parseFloat(xi));
 
       if (tError === 0) {
-        error = abs(xn - xi);
+        error = abs(parseFloat(xn) - parseFloat(xi));
       } else {
-        error = abs((xn - xi) / xn);
+        error = abs((parseFloat(xn) - parseFloat(xi)) / parseFloat(xn));
       }
 
       ite += 1;
-      xi = xn;
-      table.push([ite, xi, error]);
+      xi = parseFloat(xn);
+      table.push([parseInt(ite),parseFloat(xi), parseFloat(error)]);
     }
 
     console.log(tabulate(table, headers));
     let result = tabulate(table, headers);
-    if (error < tol) {
+    if (parseFloat(error) < parseFloat(tol)) {
       console.log(`${xi} es raiz con tolerancia ${format(tol, '.1E')} en iter ${ite}`);
       return <TableGenerator headers={headers} table={result.streeam} />;
     } else {

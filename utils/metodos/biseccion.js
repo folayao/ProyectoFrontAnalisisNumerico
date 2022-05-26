@@ -6,7 +6,7 @@ function Biseccion({ consFunction, xi, xf, tol, tError }) {
   console.log('_____ raices multiples js ______');
   console.log(consFunction, xi, xf, tol, tError);
 
-  var error, headers, ite, table, xm;
+  let error, headers, ite, table, xm;
   let f = Function('x', 'return ' + consFunction);
 
   headers = ['ite', 'xi', 'f(xi)', 'xm', 'f(xm)', 'xf', 'f(xf)', 'Error'];
@@ -26,28 +26,37 @@ function Biseccion({ consFunction, xi, xf, tol, tError }) {
       console.log('Intervalo no valido');
       return <h1>Intervalo no valido, {f(xi) * f(xf)} es mayor que cero</h1>;
     } else {
-      xm = (xi + xf) / 2;
-      error = tol + 1;
+      xm = (parseInt(xi) + parseInt(xf)) / 2;
+      error = parseInt(tol) + 1;
       ite = 0;
-      table.push([ite, xi, f(xi), xm, f(xm), xf, f(xf), error + '.1E']);
+      table.push([
+        parseInt(ite),
+        parseInt(xi),
+        f(parseInt(xi)),
+        parseInt(xm),
+        f(parseInt(xm)),
+        parseInt(xf),
+        f(parseInt(xf)),
+        error + '.1E',
+      ]);
 
       while (error >= tol && f(xm) !== 0) {
-        if (f(xi) * f(xm) < 0) {
-          xf = xm;
+        if (f(parseInt(xi)) * f(parseInt(xm)) < 0) {
+          xf = parseInt(xm);
         } else {
-          xi = xm;
+          xi = parseInt(xm);
         }
 
-        xm = (xi + xf) / 2;
+        xm = (parseInt(xi) + parseInt(xf)) / 2;
 
         if (tError === 0) {
-          error = abs(xm - xi);
+          error = abs(parseInt(xm) - parseInt(xi));
         } else {
-          error = abs((xm - xi) / xm);
+          error = abs((parseInt(xm) - parseInt(xi)) / parseInt(xm));
         }
 
         ite += 1;
-        table.push([ite, xi, f(xi), xm, f(xm), xf, f(xf), format(error, '.1E')]);
+        table.push([parseInt(ite), parseInt(xi), f(parseInt(xi)), parseInt(xm), f(parseInt(xm)), parseInt(xf), f(parseInt(xf)), format(error, '.1E')]);
       }
 
       let result = tabulate(table, headers);
