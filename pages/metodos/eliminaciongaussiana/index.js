@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import { ContainerInputs } from '../../../components/Containers';
 import Inputs from '../../../components/Inputs';
-import MatrixReader from './../../../components/MatrixReader';
+import MatrixReader from '../../../components/MatrixReaders/MatrixReader';
 
 const Index = () => {
-  const [xMatrixLength, setXMatrixLength] = useState(2);
   const [yMatrixLength, setYMatrixLength] = useState(2);
   const [matrix, setmatrix] = useState(null);
+  const [b, setb] = useState(null);
   const [showMatriz, setshowMatriz] = useState(false);
   const [vti, setVti] = useState(false);
   const CreateMatrix = (e) => {
     e.preventDefault();
     let arrayToSet = new Array();
-    for (let rowIndex = 0; rowIndex < xMatrixLength; rowIndex++) {
+    for (let rowIndex = 0; rowIndex < yMatrixLength; rowIndex++) {
       let row = new Array();
       for (let columnIndex = 0; columnIndex < yMatrixLength; columnIndex++) {
         let col = 0;
@@ -23,7 +23,12 @@ const Index = () => {
     setmatrix(arrayToSet);
     setshowMatriz(true);
   };
-
+  
+  const ResetMatrix = (e) =>{
+    e.preventDefault();
+    setYMatrixLength(0);
+    setmatrix(null);
+  }
   const agregarVTI = (e) => {
     if (yMatrixLength > 0) {
       if (vti == false) {
@@ -42,14 +47,9 @@ const Index = () => {
   return (
     <>
       <ContainerInputs>
+      
         <Inputs
-          labelTitle={'FILAS'}
-          typeInput='number'
-          setFunction={setXMatrixLength}
-          value={xMatrixLength}
-        />
-        <Inputs
-          labelTitle={'COLUMNAS'}
+          labelTitle={'TAMAÑO DE LA MATRIZ A'}
           typeInput='number'
           setFunction={setYMatrixLength}
           value={yMatrixLength}
@@ -60,6 +60,10 @@ const Index = () => {
         <button onClick={CreateMatrix} type>
           {' '}
           CREAR MATRIZ
+        </button>
+        <button onClick={ResetMatrix} type>
+          {' '}
+          Reset
         </button>
 
         {showMatriz != false ? <MatrixReader matrix={matrix} headersN={yMatrixLength}/> : null}
