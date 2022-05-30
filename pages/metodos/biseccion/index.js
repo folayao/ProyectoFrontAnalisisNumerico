@@ -51,7 +51,7 @@ const Index = () => {
         />
         <br />
         <Inputs
-          labelTitle={'tolerancia Error'}
+          labelTitle={'Tipo Error'}
           setFunction={settError}
           typeInput={'text'}
           value={tError}

@@ -65,7 +65,7 @@ const Index = () => {
         />
         <br />
         <Inputs
-          labelTitle={'t error'}
+          labelTitle={'Tipo error'}
           setFunction={setconstERROR}
           typeInput={'number'}
           value={constERROR}

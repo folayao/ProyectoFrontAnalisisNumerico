@@ -84,9 +84,100 @@ const Header = () => {
               </button>
             </li>
             <li className={styled['item-list']}>
+              <button className={styled['item-list__button']} onClick={closeContainerNav}>
+                <Link href='/metodos/eliminaciongaussiana'>
+                  <h1 className={styled['item-list-h1']}>Eliminacion Gaussiana</h1>
+                </Link>
+              </button>
+            </li>{' '}
+            <li className={styled['item-list']}>
+              <button className={styled['item-list__button']} onClick={closeContainerNav}>
+                <Link href='/metodos/pivoteoparcial'>
+                  <h1 className={styled['item-list-h1']}>Pivoteo Parcial</h1>
+                </Link>
+              </button>
+            </li>{' '}
+            <li className={styled['item-list']}>
+              <button className={styled['item-list__button']} onClick={closeContainerNav}>
+                <Link href='/metodos/pivoteototal'>
+                  <h1 className={styled['item-list-h1']}>Pivoteo Total</h1>
+                </Link>
+              </button>
+            </li>{' '}
+            <li className={styled['item-list']}>
+              <button className={styled['item-list__button']} onClick={closeContainerNav}>
+                <Link href='/metodos/factorizacionlu'>
+                  <h1 className={styled['item-list-h1']}>Factorizacion Lu</h1>
+                </Link>
+              </button>
+            </li>{' '}
+            <li className={styled['item-list']}>
+              <button className={styled['item-list__button']} onClick={closeContainerNav}>
+                <Link href='/metodos/crout'>
+                  <h1 className={styled['item-list-h1']}>Crout</h1>
+                </Link>
+              </button>
+            </li>{' '}
+            <li className={styled['item-list']}>
+              <button className={styled['item-list__button']} onClick={closeContainerNav}>
+                <Link href='/metodos/doolittle'>
+                  <h1 className={styled['item-list-h1']}>Doolittle</h1>
+                </Link>
+              </button>
+            </li>{' '}
+            <li className={styled['item-list']}>
+              <button className={styled['item-list__button']} onClick={closeContainerNav}>
+                <Link href='/metodos/cholesky'>
+                  <h1 className={styled['item-list-h1']}>Cholesky</h1>
+                </Link>
+              </button>
+            </li>{' '}
+            <li className={styled['item-list']}>
+              <button className={styled['item-list__button']} onClick={closeContainerNav}>
+                <Link href='/metodos/jacobi'>
+                  <h1 className={styled['item-list-h1']}>Jacobi</h1>
+                </Link>
+              </button>
+            </li>{' '}
+            <li className={styled['item-list']}>
+              <button className={styled['item-list__button']} onClick={closeContainerNav}>
+                <Link href='/metodos/gaussseidel'>
+                  <h1 className={styled['item-list-h1']}>Gauss-Seidel</h1>
+                </Link>
+              </button>
+            </li>{' '}
+            <li className={styled['item-list']}>
+              <button className={styled['item-list__button']} onClick={closeContainerNav}>
+                <Link href='/metodos/vandermonde'>
+                  <h1 className={styled['item-list-h1']}>vandermonde</h1>
+                </Link>
+              </button>
+            </li>{' '}
+            <li className={styled['item-list']}>
+              <button className={styled['item-list__button']} onClick={closeContainerNav}>
+                <Link href='/metodos/newtoncap3'>
+                  <h1 className={styled['item-list-h1']}>newtoncap3</h1>
+                </Link>
+              </button>
+            </li>{' '}
+            <li className={styled['item-list']}>
+              <button className={styled['item-list__button']} onClick={closeContainerNav}>
+                <Link href='/metodos/splineslineales'>
+                  <h1 className={styled['item-list-h1']}>splines lineales</h1>
+                </Link>
+              </button>
+            </li>{' '}
+            <li className={styled['item-list']}>
+              <button className={styled['item-list__button']} onClick={closeContainerNav}>
+                <Link href='/metodos/splinescuadraticos'>
+                  <h1 className={styled['item-list-h1']}>splines cuadraticos</h1>
+                </Link>
+              </button>
+            </li>
+            <li className={styled['item-list']}>
               <div className={styled['item-list__button']}>
                 <Link href='https://github.com/folayao/ProyectoFrontAnalisisNumerico'>
-              <FontAwesomeIcon icon={faGithub} className={styled['icon']} />
+                  <FontAwesomeIcon icon={faGithub} className={styled['icon']} />
                 </Link>
               </div>
             </li>
