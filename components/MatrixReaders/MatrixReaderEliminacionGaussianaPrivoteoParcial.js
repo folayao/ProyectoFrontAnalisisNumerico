@@ -1,7 +1,6 @@
 import { React, useRef, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import EG from '../../utils/metodos/eliminacion_gausiana';
-import { jsontoarray } from '../../utils/jsontoarray';
+import EG from '../../utils/metodos/eliminacion_gausiana_piv_parcial';
 
 const MatrixReader = ({ matrix, long }) => {
   const { register, getValues, handleSubmit, reset } = useForm({});
@@ -27,7 +26,7 @@ const MatrixReader = ({ matrix, long }) => {
     e.preventDefault()
     setshowFunc(!showFunc);
   };
-
+  console.log(matrix);
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -37,18 +36,21 @@ const MatrixReader = ({ matrix, long }) => {
               {matrix == undefined
                 ? null
                 : headerslong.map((i, index) => {
+                  console.log(i);
                     return <th key={`head-${index}`}>X{index}</th>;
                   })}
             </tr>
           </thead>
           <tbody>
-            {matrix == undefined
+            {matrix == null
               ? null
               : matrix.map((row, indexrow) => {
+                console.log(row);
                   return (
                     <>
                       <tr key={`${indexrow}ptr`}>
                         {row.map((col, indexcol) => {
+                          console.log(col);
                           return (
                             <>
                               <td key={`${indexcol}p${indexrow}td`}>
@@ -84,7 +86,7 @@ const MatrixReader = ({ matrix, long }) => {
         </button>
       </form>
 
-      {showFunc ? <EG json={getValues()} long={long} /> : null}
+      {showFunc ? <EG json={getValues()} long={long}  /> : null}
     </>
   );
 };
