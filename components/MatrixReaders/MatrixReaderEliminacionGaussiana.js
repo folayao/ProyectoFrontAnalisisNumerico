@@ -4,11 +4,9 @@ import EG from '../../utils/metodos/eliminacion_gausiana';
 import { jsontoarray } from '../../utils/jsontoarray';
 
 const MatrixReader = ({ matrix, long }) => {
-  const { register, getValues, reset } = useForm({});
+  const { register, getValues, handleSubmit, reset } = useForm({});
   const [headerslong, setHeaderslong] = useState([]);
   const [showFunc, setshowFunc] = useState(false);
-  const [a, seta] = useState([]);
-  const [b, setb] = useState([]);
 
   useEffect(() => {
     let arreglo = [];
@@ -21,20 +19,18 @@ const MatrixReader = ({ matrix, long }) => {
 
   let arregloA = [];
   let arreglob = [];
-  for (let index = 0; index <= long-1; index++) {
+  for (let index = 0; index <= long - 1; index++) {
     arregloA.push([]);
   }
 
-  const onSubmit = () => {
-    let v = getValues();
-
-    console.log(v, "V");
+  const onSubmit = (e) => {
+    e.preventDefault()
     setshowFunc(!showFunc);
   };
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <table>
           <thead>
             <tr>
@@ -79,13 +75,16 @@ const MatrixReader = ({ matrix, long }) => {
                 })}
           </tbody>
         </table>
+
+        <button
+          type='submit'
+          onClick={(e) => onSubmit(e)}
+        >
+          REALIZAR CALCULO
+        </button>
       </form>
 
-      <button type='button' onClick={onSubmit}>
-        REALIZAR CALCULO
-      </button>
-
-      {showFunc ? <EG json={getValues()} long={long}/> : null}
+      {showFunc ? <EG json={getValues()} long={long} /> : null}
     </>
   );
 };

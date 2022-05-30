@@ -8,7 +8,7 @@ const Index = () => {
   const [matrix, setmatrix] = useState(null);
   const [showMatriz, setshowMatriz] = useState(false);
 
-  const CreateMatrix = (e) => {
+  const createMatrix = (e) => {
     e.preventDefault();
     let arrayToSet = new Array();
     for (let rowIndex = 0; rowIndex < yMatrixLength; rowIndex++) {
@@ -40,7 +40,7 @@ const Index = () => {
           value={yMatrixLength}
         />
 
-        <button onClick={CreateMatrix} type>
+        <button onClick={createMatrix} type>
           {' '}
           CREAR MATRIZ
         </button>
