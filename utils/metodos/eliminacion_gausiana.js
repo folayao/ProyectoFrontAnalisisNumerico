@@ -1,13 +1,51 @@
 import { arrayA, arrayB } from '../jsontoarray';
 const eliminacion_gausiana = ({ json, long }) => {
   console.log(json, long);
-  let jsonA = arrayA(json, long);
-  let jsonB = arrayB(json, long);
+  const jsonA = arrayA(json, long);
+  console.log(json);
+  const jsonB = arrayB(json, long);
   let A = jsonA
   let b = jsonB
+
   
-  console.log(A, "A");
-  console.log(b, "b");
+  // for (let index = 0; index < long; index++) {
+  //   delete json[`VTIp${index}`];
+  // }
+
+  // console.log(json, 'JSON');
+
+  // for (let counter = 0; counter < long; counter++) {
+  //   let ar = new Array();
+
+  // }
+
+  // let arregloFinal = Array(long)
+  //   .fill([])
+  //   .map((row, indexrow) => {
+  //     console.log('ROW : ', row);
+  //      let arreglo = Array()
+  //      Object.entries(json).forEach((element, indexcol) => {
+  //       console.log(element);
+  //       if (indexrow == parseInt(element[0].split('p')[1])) {
+  //         console.log('Index row: ', indexrow, 'INDEX col', indexcol, 'ELEMENT[1]: ', element[1]);
+  //         let ultimo = element.pop();
+  //         console.log(ultimo, 'ultimo');
+  //         arreglo.push(ultimo)
+  //       }
+  //     });
+  //     return arreglo
+  //   });
+
+
+  // console.log('ARREGLO A', arregloFinal);
+
+
+
+
+
+  
+  console.log(A.ar, "A");
+  console.log(b.ar, "b");
   let n = A.length
   
   console.log("Empezo el metodo:");
