@@ -36,7 +36,7 @@ const raices_multiples = ({
 
       ite += 1;
       xi = parseFloat(xn);
-      table.push([parent(ite), parseFloat(xi), f(parseFloat(xi)), fi(parseFloat(xi)), fii(parseFloat(xi)), error]);
+      table.push([parseInt(ite), parseFloat(xi), f(parseFloat(xi)), fi(parseFloat(xi)), fii(parseFloat(xi)), error]);
     }
 
     console.log(tabulate(table, headers));

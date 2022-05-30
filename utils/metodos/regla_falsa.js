@@ -38,7 +38,7 @@ function ReglaFalsa({ xi, constFunction, xf, tol, tError }) {
         f(parseFloat(xm)),
         parseFloat(xf),
         f(parseFloat(xf)),
-        parseFloat(error) + '.1E',
+        parseFloat(error) ,
       ]);
 
       while (parseFloat(error) >= parseFloat(tol) && f(parseFloat(xm)) !== 0) {
@@ -51,25 +51,44 @@ function ReglaFalsa({ xi, constFunction, xf, tol, tError }) {
         xm = interceptoX(parseFloat(xi), parseFloat(xf), f(parseFloat(xi)), f(parseFloat(xf)));
 
         if (tError === 0) {
-          error = abs(parseFloat(xm) - parseFloat(xi));
+          error = Math.abs(parseFloat(xm) - parseFloat(xi));
         } else {
-          error = abs((parseFloat(xm) - parseFloat(xi)) / parseFloat(xm));
+          error = Math.abs((parseFloat(xm) - parseFloat(xi)) / parseFloat(xm));
         }
 
         ite += 1;
-        table.push([parseInt(ite), parseFloat(xi), f(parseFloat(xi)), parseFloat(xm), f(parseFloat(xm)), parseFloat(xf), f(parseFloat(xf)), error + '.1E']);
+        table.push([
+          parseInt(ite),
+          parseFloat(xi),
+          f(parseFloat(xi)),
+          parseFloat(xm),
+          f(parseFloat(xm)),
+          parseFloat(xf),
+          f(parseFloat(xf)),
+          error + '.1E',
+        ]);
       }
 
       console.log(tabulate(table, headers));
       let result = tabulate(table, headers);
 
       if (f(parseFloat(xm)) === 0) {
-        console.log(`El valor ${xm} es raiz en la iteracion ${ite}`);
-        return <TableGenerator headers={headers} table={result} />;
+        console.log();
+        return (
+          <>
+            <h1>{`El valor ${xm} es raiz en la iteracion ${ite}`}</h1>
+            <TableGenerator headers={headers} table={result.stream} />;
+          </>
+        );
       } else {
         console.log(`El valor ${xm} es raiz con tolerancia ${(tol, '.1E')} en la iteracion ${ite}`);
         return (
-          <h1>{`El valor ${xm} es raiz con tolerancia ${(tol, '.1E')} en la iteracion ${ite}`}</h1>
+          <>
+            <h1>{`El valor ${xm} es raiz con tolerancia ${
+              (tol, '.1E')
+            } en la iteracion ${ite}`}</h1>
+            <TableGenerator headers={headers} table={result.stream} />;
+          </>
         );
       }
     }

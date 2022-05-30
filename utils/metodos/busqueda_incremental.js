@@ -9,24 +9,23 @@ function BusquedaIncremental({consFunction, xi, maxIter, deltaX}) {
     table = [];
   
     if (funcion(xi) === 0) {
-        console.log(`${xi} es raiz`);
         return <h1>{`${xi} es raiz`}</h1>
     } else {
-      xf = parseInt(xi + deltaX);
+      xf = parseFloat(xi + deltaX);
       ite = 0;
-      table.push([ite, parseInt(xi), parseInt(funcion(xi))]);
+      table.push([ite, parseFloat(xi), parseFloat(funcion(xi))]);
   
       while (funcion(xi) * funcion(xf) > 0 && ite < maxIter) {
-        console.log(xi, xf, ite, table)
-        xi = parseInt(xf);
-        xf =parseInt(xi)+ parseInt(deltaX);
+        xi = parseFloat(xf);
+        xf =parseFloat(xi)+ parseFloat(deltaX);
         ite += 1;
-        table.push([ite, parseInt(xi), Number(funcion(xi))]);
+        table.push([ite, parseFloat(xi), Number(funcion(xi))]);
       }
       ite += 1;
       
-      table.push([ite, parseInt(xf), parseInt(funcion(xf))]);
+      table.push([ite, parseFloat(xf), parseFloat(funcion(xf))]);
       let resultado = tabulate(table, headers)
+      console.log(resultado);
 
       return <TableGenerator headers={headers} table={resultado.stream}/>
   

@@ -16,18 +16,18 @@ function Newton({ consFunction, xi, tol, consFunctionSD, maxIter, tError }) {
     error = parseFloat(tol) + 1;
     table.push([ite, xi, f(xi), fi(xi), error + '.1']);
 
-    while (error >= parseFloat(tol) && parseInt(ite) < parseInt(maxIter)) {
-      xn = parseInt(xi) - f(parseInt(xi)) / fi(parseInt(xi));
+    while (error >= parseFloat(tol) && parseFloat(ite) < parseFloat(maxIter)) {
+      xn = parseFloat(xi) - f(parseFloat(xi)) / fi(parseFloat(xi));
 
       if (tError === 0) {
-        error = abs(parseFloat(xn) - parseFloat(xi));
+        error = Math.abs(parseFloat(xn) - parseFloat(xi));
       } else {
-        error = abs((parseFloat(xn) - parseFloat(xi)) / parseFloat(xn));
+        error = Math.abs((parseFloat(xn) - parseFloat(xi)) / parseFloat(xn));
       }
 
       ite += 1;
       xi = parseFloat(xn);
-      table.push([parseInt(ite), parseFloat(xi), f(parseFloat(xi)), fi(parseFloat(xi)), error + '.1']);
+      table.push([parseFloat(ite), parseFloat(xi), f(parseFloat(xi)), fi(parseFloat(xi)), error + '.1']);
     }
 
     console.log(tabulate(table, headers));

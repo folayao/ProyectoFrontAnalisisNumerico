@@ -13,27 +13,27 @@ function PuntoFijo({ constFunction, xi, tol, constFunctionG, maxIter, tError }) 
   } else {
     ite = 0;
     error = parseFloat(tol) + 1;
-    table.push([parseInt(ite), parseFloat(xi), parseFloat(error)]);
+    table.push([parseFloat(ite), parseFloat(xi), parseFloat(error)]);
 
-    while (parseFloat(error) >= parseFloat(tol) && parseInt(ite) < parseInt(maxIter)) {
+    while (parseFloat(error) >= parseFloat(tol) && parseFloat(ite) < parseFloat(maxIter)) {
       xn = g(parseFloat(xi));
 
       if (tError === 0) {
-        error = abs(parseFloat(xn) - parseFloat(xi));
+        error = Math.abs(parseFloat(xn) - parseFloat(xi));
       } else {
-        error = abs((parseFloat(xn) - parseFloat(xi)) / parseFloat(xn));
+        error = Math.abs((parseFloat(xn) - parseFloat(xi)) / parseFloat(xn));
       }
 
       ite += 1;
       xi = parseFloat(xn);
-      table.push([parseInt(ite),parseFloat(xi), parseFloat(error)]);
+      table.push([parseFloat(ite),parseFloat(xi), parseFloat(error)]);
     }
 
     console.log(tabulate(table, headers));
     let result = tabulate(table, headers);
     if (parseFloat(error) < parseFloat(tol)) {
-      console.log(`${xi} es raiz con tolerancia ${format(tol, '.1E')} en iter ${ite}`);
-      return <TableGenerator headers={headers} table={result.streeam} />;
+      console.log(`${xi} es raiz con tolerancia ${tol} en iter ${ite}`);
+      return <TableGenerator headers={headers} table={result.stream} />;
     } else {
       console.log('No llegamos');
       return <h1>No Llegamos</h1>;

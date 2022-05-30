@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { ContainerInputs } from '../../../components/Containers';
 import Inputs from '../../../components/Inputs';
-import MatrixReader from '../../../components/MatrixReaders/MatrixReader';
+import MatrixReader from '../../../components/MatrixReaders/MatrixReaderEliminacionGaussiana';
 
 const Index = () => {
   const [yMatrixLength, setYMatrixLength] = useState(2);
   const [matrix, setmatrix] = useState(null);
-  const [b, setb] = useState(null);
   const [showMatriz, setshowMatriz] = useState(false);
-  const [vti, setVti] = useState(false);
+
   const CreateMatrix = (e) => {
     e.preventDefault();
     let arrayToSet = new Array();
@@ -20,7 +19,7 @@ const Index = () => {
       }
       arrayToSet.push(row);
     }
-    setmatrix(arrayToSet);
+    setmatrix(arrayToSet)
     setshowMatriz(true);
   };
   
@@ -29,21 +28,7 @@ const Index = () => {
     setYMatrixLength(0);
     setmatrix(null);
   }
-  const agregarVTI = (e) => {
-    if (yMatrixLength > 0) {
-      if (vti == false) {
-        setVti(true);
-        setYMatrixLength(yMatrixLength + 1);
-        setshowMatriz(false);
-      }
-
-      if (vti == true) {
-        setVti(false);
-        setYMatrixLength(yMatrixLength - 1);
-        setshowMatriz(false);
-      }
-    }
-  };
+ 
   return (
     <>
       <ContainerInputs>
@@ -54,9 +39,7 @@ const Index = () => {
           setFunction={setYMatrixLength}
           value={yMatrixLength}
         />
-        <button type='button' onClick={agregarVTI}>
-          Agregar vector de terminos independientes
-        </button>
+
         <button onClick={CreateMatrix} type>
           {' '}
           CREAR MATRIZ
@@ -66,7 +49,7 @@ const Index = () => {
           Reset
         </button>
 
-        {showMatriz != false ? <MatrixReader matrix={matrix} headersN={yMatrixLength}/> : null}
+        {showMatriz != false ? <MatrixReader matrix={matrix} long={yMatrixLength}/> : null}
       </ContainerInputs>
     </>
   );

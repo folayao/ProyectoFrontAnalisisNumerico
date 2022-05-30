@@ -32,7 +32,7 @@ const Index = () => {
         />
         <br />
         <Inputs
-          labelTitle={'x1'}
+          labelTitle={'xi'}
           setFunction={setx1}
           typeInput={'number'}
           value={x1}

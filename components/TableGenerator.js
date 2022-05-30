@@ -7,10 +7,9 @@ const TableGenerator = ({ headers, table }) => {
         <thead>
           <tr>
             {headers.map((headItem) => {
-              console.log(headItem);
               return (
                 <>
-                  <th className='tg-0lax'>{headItem}</th>
+                  <th key={headItem} className='tg-0lax'>{headItem}</th>
                 </>
               );
             })}
@@ -24,7 +23,7 @@ const TableGenerator = ({ headers, table }) => {
                   {t.map((ite) => {
                     return (
                       <>
-                        <td className='tg-0lax'>{ite}</td>
+                        <td key={ite+"td"} className='tg-0lax'>{ite}</td>
                       </>
                     );
                   })}

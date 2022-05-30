@@ -26,53 +26,58 @@ function Biseccion({ consFunction, xi, xf, tol, tError }) {
       console.log('Intervalo no valido');
       return <h1>Intervalo no valido, {f(xi) * f(xf)} es mayor que cero</h1>;
     } else {
-      xm = (parseInt(xi) + parseInt(xf)) / 2;
-      error = parseInt(tol) + 1;
+      xm = (parseFloat(xi) + parseFloat(xf)) / 2;
+      error = parseFloat(tol) + 1;
       ite = 0;
       table.push([
-        parseInt(ite),
-        parseInt(xi),
-        f(parseInt(xi)),
-        parseInt(xm),
-        f(parseInt(xm)),
-        parseInt(xf),
-        f(parseInt(xf)),
-        error + '.1E',
+        parseFloat(ite),
+        parseFloat(xi),
+        f(parseFloat(xi)),
+        parseFloat(xm),
+        f(parseFloat(xm)),
+        parseFloat(xf),
+        f(parseFloat(xf)),
+        error,
       ]);
 
       while (error >= tol && f(xm) !== 0) {
-        if (f(parseInt(xi)) * f(parseInt(xm)) < 0) {
-          xf = parseInt(xm);
+        if (f(parseFloat(xi)) * f(parseFloat(xm)) < 0) {
+          xf = parseFloat(xm);
         } else {
-          xi = parseInt(xm);
+          xi = parseFloat(xm);
         }
 
-        xm = (parseInt(xi) + parseInt(xf)) / 2;
+        xm = (parseFloat(xi) + parseFloat(xf)) / 2;
 
         if (tError === 0) {
-          error = abs(parseInt(xm) - parseInt(xi));
+          error = Math.abs(parseFloat(xm) - parseFloat(xi));
         } else {
-          error = abs((parseInt(xm) - parseInt(xi)) / parseInt(xm));
+          error = Math.abs((parseFloat(xm) - parseFloat(xi)) / parseFloat(xm));
         }
 
         ite += 1;
-        table.push([parseInt(ite), parseInt(xi), f(parseInt(xi)), parseInt(xm), f(parseInt(xm)), parseInt(xf), f(parseInt(xf)), format(error, '.1E')]);
+        table.push([
+          parseFloat(ite),
+          parseFloat(xi),
+          f(parseFloat(xi)),
+          parseFloat(xm),
+          f(parseFloat(xm)),
+          parseFloat(xf),
+          f(parseFloat(xf)),
+          error ,
+        ]);
       }
 
       let result = tabulate(table, headers);
 
       if (f(xm) === 0) {
-        console.log(`El valor ${xm} es raiz en la iteracion ${ite}`);
         return <TableGenerator headers={headers} table={result.stream} />;
       } else {
-        console.log(
-          `El valor ${xm} es raiz con tolerancia ${format(tol, '.1E')} en la iteracion ${ite}`
-        );
         return (
-          <h1>{`El valor ${xm} es raiz con tolerancia ${format(
-            tol,
-            '.1E'
-          )} en la iteracion ${ite}`}</h1>
+          <>
+          <h1>{`El valor ${xm} es raiz con tolerancia ${tol + '.1E'} en la iteracion ${ite}`}</h1>
+          <TableGenerator headers={headers} table={result.stream} />;
+          </>
         );
       }
     }
