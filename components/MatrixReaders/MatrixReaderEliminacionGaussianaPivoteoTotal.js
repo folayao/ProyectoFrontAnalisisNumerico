@@ -1,6 +1,6 @@
 import { React, useRef, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import EG from '../../utils/metodos/eliminacion_gausiana';
+import EG from '../../utils/metodos/eliminacion_gausiana_piv_total';
 import { jsontoarray } from '../../utils/jsontoarray';
 
 const MatrixReader = ({ matrix, long }) => {

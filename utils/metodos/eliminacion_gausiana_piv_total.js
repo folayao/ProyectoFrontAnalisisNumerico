@@ -1,3 +1,5 @@
+import { arrayA, arrayB } from '../jsontoarray';
+ 
 function pivoteo_total(Ab, n, k) {
   var columna2, fila2, mayor;
   mayor = fila2 = columna2 = 0;
@@ -36,7 +38,12 @@ function cambio_columna(Ab, columna1, columna2, x_aux, n) {
   return Ab;
 }
 
-function eliminacion_gausiana_piv_total(A, b) {
+function eliminacion_gausiana_piv_total({json, long}) {
+  const jsonA = arrayA(json, long);
+  let A = jsonA.ar;
+  let bObject = jsonA.objeto;
+  const jsonB = arrayB(bObject,long);
+  let b = jsonB.ar;
   var Ab, M, columna2, fila2, mayor, sum, x, x_aux,n;
   console.log("Empezo el metodo:");
   n = A.length
@@ -83,21 +90,14 @@ function eliminacion_gausiana_piv_total(A, b) {
     x[k - 1] = (Ab[k - 1][n] - sum) / Ab[k - 1][k - 1];
   }
 
-  for (var i = 0; i < n; i += 1) {
-    console.log("x" + x_aux[i].toString() + "=" + x[i].toString());
-  }
+  return (
+    <>
+      {x.map((item, i) => {
+        return <p>{`x  + ${i.toString()} + = ${item.toString()}`}</p>;
+      })}
+    </>
+  );
 }
 
-module.exports = {
-  eliminacion_gausiana_piv_total,
-}
-
-A = [[4, -1, 0, 3],
-     [1, 15.5, 3, 8],
-     [0, -1.3, -4, 1.1],
-     [14, 5, -2, 30],]
-  
-b = [1, 1, 1, 1]
-
-eliminacion_gausiana_piv_total(A,b)
+export default eliminacion_gausiana_piv_total;
 

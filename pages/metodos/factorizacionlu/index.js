@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ContainerInputs } from '../../../components/Containers';
 import Inputs from '../../../components/Inputs';
-import MatrixReader from '../../../components/MatrixReaders/MatrixReaderEliminacionGaussiana';
+import MatrixReader from '../../../components/MatrixReaders/MatrixReaderFactorizacionLU';
 
 const Index = () => {
   const [yMatrixLength, setYMatrixLength] = useState(2);
