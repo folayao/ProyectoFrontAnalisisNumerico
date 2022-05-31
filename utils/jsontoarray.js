@@ -39,4 +39,28 @@ const arrayB = (json, long) => {
   return { ar: arreglo};
 };
 
-export { arrayA, arrayB };
+
+const arrayX = (json, long) =>{
+  let arreglo = Array()
+  let objeto = {};
+  for (let index = 0; index < long; index++) {
+    let indexx = `y-${index}`;
+    objeto[indexx] = json[`y-${index}`];
+  }
+
+  for (let index = 0; index < long; index++) {
+    delete json[`y-${index}`];
+  }
+  Object.values(json).map((e)=>{
+    arreglo.push(parseFloat(e))
+  })
+  return {ar: arreglo, objeto: objeto}
+}
+const arrayY= (json) =>{
+  let arreglo = Array()
+  Object.values(json).map((e)=>{
+    arreglo.push(parseFloat(e))
+  })
+  return {ar: arreglo}
+}
+export { arrayA, arrayB, arrayX, arrayY};

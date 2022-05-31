@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { ContainerInputs } from '../../../components/Containers';
 import Inputs from '../../../components/Inputs';
-import MatrixReader from '../../../components/MatrixReaders/MatrixReaderEliminacionGaussiana';
+import MatrixReader from '../../../components/MatrixReaders/MatrixReaderJacobi';
 
 const Index = () => {
   const [yMatrixLength, setYMatrixLength] = useState(2);
   const [matrix, setmatrix] = useState(null);
   const [showMatriz, setshowMatriz] = useState(false);
+  const [x, setx] = useState(0)
+  const [tol, settol] = useState(0)
+  const [iter, setiter] = useState(0)
 
   const createMatrix = (e) => {
     e.preventDefault();
@@ -34,6 +37,24 @@ const Index = () => {
       <ContainerInputs>
       
         <Inputs
+          labelTitle={'x'}
+          typeInput='number'
+          setFunction={setx}
+          value={x}
+        />  
+        <Inputs
+          labelTitle={'iteraciones'}
+          typeInput='number'
+          setFunction={setiter}
+          value={iter}
+        />
+        <Inputs
+          labelTitle={'tolerancia'}
+          typeInput='number'
+          setFunction={settol}
+          value={tol}
+        />
+        <Inputs
           labelTitle={'TAMAÑO DE LA MATRIZ A'}
           typeInput='number'
           setFunction={setYMatrixLength}
@@ -49,7 +70,7 @@ const Index = () => {
           Reset
         </button>
 
-        {showMatriz != false ? <MatrixReader matrix={matrix} long={yMatrixLength}/> : null}
+        {showMatriz != false ? <MatrixReader matrix={matrix} long={yMatrixLength} x={x} tol={tol} iter={iter}/> : null}
       </ContainerInputs>
     </>
   );

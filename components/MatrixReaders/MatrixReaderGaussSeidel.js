@@ -4,7 +4,7 @@ import EG from '../../utils/metodos/eliminacion_gausiana';
 import { jsontoarray } from '../../utils/jsontoarray';
 
 const MatrixReader = ({ matrix, long }) => {
-  const { register, getValues, handleSubmit, reset } = useForm({});
+  const { register, getValues, handleSubmit } = useForm({});
   const [headerslong, setHeaderslong] = useState([]);
   const [showFunc, setshowFunc] = useState(false);
 
@@ -14,7 +14,6 @@ const MatrixReader = ({ matrix, long }) => {
       arreglo.push(index);
     }
     setHeaderslong(arreglo);
-    reset();
   }, [long]);
 
   let arregloA = [];

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ContainerInputs } from '../../../components/Containers';
 import Inputs from '../../../components/Inputs';
-import MatrixReader from '../../../components/MatrixReaders/MatrixReaderEliminacionGaussiana';
+import MatrixReader from '../../../components/MatrixReaders/MatrixReaderDoolittle';
 
 const Index = () => {
   const [yMatrixLength, setYMatrixLength] = useState(2);
@@ -44,10 +44,10 @@ const Index = () => {
           {' '}
           CREAR MATRIZ
         </button>
-        <button onClick={ResetMatrix} type>
+        {/* <button onClick={ResetMatrix} type>
           {' '}
           Reset
-        </button>
+        </button> */}
 
         {showMatriz != false ? <MatrixReader matrix={matrix} long={yMatrixLength}/> : null}
       </ContainerInputs>

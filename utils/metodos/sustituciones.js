@@ -31,9 +31,9 @@ function sustitucion_regresivaLU(U, z) {
   var n, sum, x;
   n = U.length;
   x = [];
-
+  let copyU =  Object.values(U)
   for (var i = 0; i < n; i++) {
-    U[i].push(z[i]);
+    copyU[i].push(z[i]);
     x.push(0);
   }
 
@@ -41,10 +41,10 @@ function sustitucion_regresivaLU(U, z) {
     sum = 0;
 
     for (var j = k; j < n; j++) {
-      sum += U[k - 1][j] * x[j];
+      sum += copyU[k - 1][j] * x[j];
     }
 
-    x[k - 1] = (U[k - 1][n] - sum) / U[k - 1][k - 1];
+    x[k - 1] = (copyU[k - 1][n] - sum) / copyU[k - 1][k - 1];
   }
 
   return x;

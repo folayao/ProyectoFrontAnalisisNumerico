@@ -6,6 +6,7 @@ import { saveAs } from 'file-saver';
 const zip = require('jszip')();
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImages, faPlus, faDownload } from '@fortawesome/free-solid-svg-icons';
+import Script from 'next/script'
 
 const Home = () => {
   return (
