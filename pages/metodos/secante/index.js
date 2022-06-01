@@ -76,7 +76,7 @@ const Index = () => {
       <button onClick={resetStates}>Restablecer</button>
       {buttonShowTables ? (
         <>
-          <Secante constFunction={constFunction} x1={x1} xf={xf} tol={tol} maxIter={maxIter} tError={tError} />
+          <Secante constFunction={constFunction} x1={x1} x0={xf} tol={tol} maxIter={maxIter} tError={tError} />
         </>
       ) : (
         <>NADA</>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const TableGenerator = ({ headers, table }) => {
+  console.log(table);
   return (
     <>
       <table className='tg'>

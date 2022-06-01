@@ -44,7 +44,7 @@ function Newton({ consFunction, xi, tol, consFunctionSD, maxIter, tError }) {
       return (
         <>
           <TableGenerator headers={headers} table={result.stream} />;
-          <h1>{`${xi} es raiz con tolerancia ${tol + '.1E'} en iter ${ite}`}</h1>
+          <h1>{`${xi} es raiz con tolerancia ${tol} en iter ${ite}`}</h1>
         </>
       );
     } else {
