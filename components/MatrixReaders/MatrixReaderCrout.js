@@ -72,18 +72,7 @@ const MatrixReader = ({ matrix, long }) => {
                     </>
                   );
                 })}
-            <h3>x</h3>
-            {matrix == undefined
-              ? null
-              : matrix.map((row, indexrow) => {
-                  return (
-                    <>
-                      <tr key={`${indexrow}-tr`}>
-                        <input type='number' {...register(`x-${indexrow}`)} />
-                      </tr>
-                    </>
-                  );
-                })}
+           
           </tbody>
         </table>
 
