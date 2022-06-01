@@ -46,7 +46,7 @@ const Index = () => {
         <Inputs
           labelTitle={'tolerancia'}
           setFunction={setTol}
-          typeInput={'text'}
+          typeInput={'number'}
           value={tol}
         />
         <br />
