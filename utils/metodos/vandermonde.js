@@ -1,6 +1,6 @@
 import { ampliar, zero } from './auxiliares.js';
 import { eliminacion_gausiana } from './eg';
-import eg from './eliminacion_gausiana';
+import eg from './egpp';
 import { arrayX, arrayY } from '../jsontoarray';
 
 function vander_matrix(x) {
@@ -25,7 +25,7 @@ function vandermonde({ json, long }) {
   var vander, xy;
   vander = vander_matrix(x);
   xy = ampliar(vander, y);
-  let valoresAPresentar = eliminacion_gausiana(vander, y, vander.length);
+  let valoresAPresentar = eg(vander, y, vander.length);
   return (
     <>
       {valoresAPresentar.map((item, i) => {
