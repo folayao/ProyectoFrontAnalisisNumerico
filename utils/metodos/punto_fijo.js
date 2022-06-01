@@ -33,7 +33,12 @@ function PuntoFijo({ constFunction, xi, tol, constFunctionG, maxIter, tError }) 
     let result = tabulate(table, headers);
     if (parseFloat(error) < parseFloat(tol)) {
       console.log(`${xi} es raiz con tolerancia ${tol} en iter ${ite}`);
-      return <TableGenerator headers={headers} table={result.stream} />;
+      return(
+        <>
+        <TableGenerator headers={headers} table={result.stream} />;
+        <h1>{`${xi} es raiz con tolerancia ${tol} en iter ${ite}`}</h1>
+        </>
+      )
     } else {
       console.log('No llegamos');
       return <h1>No Llegamos</h1>;

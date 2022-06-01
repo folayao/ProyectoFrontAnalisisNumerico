@@ -7,7 +7,7 @@ const raices_multiples = ({
   consFunctionSD,
   consFunctionTD,
   maxIter,
-  tError
+  tError,
 }) => {
   console.log('_____ raices multiples js ______');
   console.log(consFunction, xi, tol, consFunctionSD, consFunctionTD, maxIter, tError);
@@ -23,10 +23,20 @@ const raices_multiples = ({
   } else {
     ite = 0;
     error = parseFloat(tol) + 1;
-    table.push([parseInt(ite), parseFloat(xi), f(parseFloat(xi)), fi(parseFloat(xi)), fii(parseFloat(xi)), parseFloat(error)]);
+    table.push([
+      parseInt(ite),
+      parseFloat(xi),
+      f(parseFloat(xi)),
+      fi(parseFloat(xi)),
+      fii(parseFloat(xi)),
+      parseFloat(error),
+    ]);
 
     while (parseFloat(error) >= parseFloat(tol) && parseInt(ite) < parseFloat(maxIter)) {
-      xn = parseFloat(xi) - (f(parseFloat(xi)) * fi(parseFloat(xi))) / (Math.pow(fi(parseFloat(xi)), 2) - f(parseFloat(xi)) * fii(parseFloat(xi)));
+      xn =
+        parseFloat(xi) -
+        (f(parseFloat(xi)) * fi(parseFloat(xi))) /
+          (Math.pow(fi(parseFloat(xi)), 2) - f(parseFloat(xi)) * fii(parseFloat(xi)));
 
       if (tError === 0) {
         error = Math.abs(parseFloat(xn) - parseFloat(xi));
@@ -36,7 +46,14 @@ const raices_multiples = ({
 
       ite += 1;
       xi = parseFloat(xn);
-      table.push([parseInt(ite), parseFloat(xi), f(parseFloat(xi)), fi(parseFloat(xi)), fii(parseFloat(xi)), error]);
+      table.push([
+        parseInt(ite),
+        parseFloat(xi),
+        f(parseFloat(xi)),
+        fi(parseFloat(xi)),
+        fii(parseFloat(xi)),
+        error,
+      ]);
     }
 
     console.log(tabulate(table, headers));
@@ -44,7 +61,12 @@ const raices_multiples = ({
 
     if (parseFloat(error) < parseFloat(tol)) {
       console.log(`${xi} es raiz con tolerancia ${tol + '.1E'} en iter ${ite}`);
-      return <TableGenerator headers={headers} table={result.stream} />;
+      return (
+        <>
+          <TableGenerator headers={headers} table={result.stream} />;
+          <h1>{`${xi} es raiz con tolerancia ${tol + '.1E'} en iter ${ite}`}</h1>
+        </>
+      );
     } else {
       console.log('No llegamos');
     }

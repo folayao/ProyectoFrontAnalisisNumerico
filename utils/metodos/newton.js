@@ -27,7 +27,13 @@ function Newton({ consFunction, xi, tol, consFunctionSD, maxIter, tError }) {
 
       ite += 1;
       xi = parseFloat(xn);
-      table.push([parseFloat(ite), parseFloat(xi), f(parseFloat(xi)), fi(parseFloat(xi)), error + '.1']);
+      table.push([
+        parseFloat(ite),
+        parseFloat(xi),
+        f(parseFloat(xi)),
+        fi(parseFloat(xi)),
+        error + '.1',
+      ]);
     }
 
     console.log(tabulate(table, headers));
@@ -35,7 +41,12 @@ function Newton({ consFunction, xi, tol, consFunctionSD, maxIter, tError }) {
 
     if (error < tol) {
       console.log(`${xi} es raiz con tolerancia ${tol + '.1E'} en iter ${ite}`);
-      return <TableGenerator headers={headers} table={result.stream} />;
+      return (
+        <>
+          <TableGenerator headers={headers} table={result.stream} />;
+          <h1>{`${xi} es raiz con tolerancia ${tol + '.1E'} en iter ${ite}`}</h1>
+        </>
+      );
     } else {
       console.log('No llegamos');
       return <h1>NO LLEGAMOS</h1>;
