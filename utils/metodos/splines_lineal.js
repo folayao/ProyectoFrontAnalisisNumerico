@@ -1,4 +1,4 @@
-import { eliminacion_gausiana } from './eg.js';
+import { eliminacion_gausiana_piv_parcial } from './egpp';
 import { arrayX, arrayY } from '../jsontoarray';
 import {zeros} from 'mathjs';
 
@@ -37,7 +37,7 @@ function splines_lineal({json, long}) {
   console.log();
   console.log(vector_terminos);
   console.log();
-  x = eliminacion_gausiana(matriz, vector_terminos);
+  x = eliminacion_gausiana_piv_parcial(matriz, vector_terminos);
   console.log(x);
   return (
     <>
