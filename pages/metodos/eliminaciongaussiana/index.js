@@ -44,10 +44,6 @@ const Index = () => {
           {' '}
           CREAR MATRIZ
         </button>
-        <button onClick={ResetMatrix} type>
-          {' '}
-          Reset
-        </button>
 
         {showMatriz != false ? <MatrixReader matrix={matrix} long={yMatrixLength}/> : null}
       </ContainerInputs>

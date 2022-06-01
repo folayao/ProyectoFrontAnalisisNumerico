@@ -71,7 +71,7 @@ const Index = () => {
           <Biseccion consFunction={consFunction} xi={xi} xf={xf} tol={tol} tError={0} />
         </>
       ) : (
-        <>NADA</>
+        null
       )}
     </>
   );

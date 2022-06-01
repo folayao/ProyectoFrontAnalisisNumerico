@@ -1,5 +1,5 @@
 import { columna, dot, eye, zero } from './auxiliares.js';
-import {arrayA, arrayB} from '../jsontoarray'
+import { arrayA, arrayB } from '../jsontoarray';
 
 import { sustitucion_progresiva, sustitucion_regresivaLU } from './sustituciones.js';
 
@@ -29,36 +29,38 @@ function crout({ json, long }) {
 
   return (
     <>
-      <div>
-        <ul>
-          <li>
-            <h3>L :</h3>
-            {L.map((e) => {
-              return <p>{`  ${e}  `}</p>;
-            })}
-          </li>
-          <li>
-            <h3>U : </h3>
-            {U.map((e) => {
-              return <p>{`  ${e}  `}</p>;
-            })}
-          </li>
-        </ul>
-      </div>
       <h1>resultado: </h1>
       <div>
         <ul>
           <li>
             <h3>L :</h3>
             {L.map((e) => {
-              return <p>{`  ${e}  `}</p>;
-            })}
+            console.log(e);
+            return (
+              <table>
+                <tr>
+                  {e.map((item) => {
+                    return <td>{item}</td>;
+                  })}
+                </tr>
+              </table>
+            );
+          })}
           </li>
           <li>
             <h3>U : </h3>
             {U.map((e) => {
-              return <p>{`  ${e}  `}</p>;
-            })}
+            console.log(e);
+            return (
+              <table>
+                <tr>
+                  {e.map((item) => {
+                    return <td>{item}</td>;
+                  })}
+                </tr>
+              </table>
+            );
+          })}
           </li>
           <li>
             <h3>Z : </h3>

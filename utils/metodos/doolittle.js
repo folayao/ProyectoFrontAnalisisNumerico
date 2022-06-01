@@ -1,8 +1,8 @@
 import { columna, dot, eye, zero } from './auxiliares.js';
-import { sustitucion_progresiva,  sustitucion_regresivaLU } from './sustituciones.js';
-import {arrayA, arrayB} from '../jsontoarray'
+import { sustitucion_progresiva, sustitucion_regresivaLU } from './sustituciones.js';
+import { arrayA, arrayB } from '../jsontoarray';
 
-function doolittle({json, long}) {
+function doolittle({ json, long }) {
   const jsonA = arrayA(json, long);
   let A = jsonA.ar;
   let bObject = jsonA.objeto;
@@ -13,7 +13,7 @@ function doolittle({json, long}) {
   L = eye(n);
   U = zero(n);
 
-  for (var i = 0; i < n-1; i += 1) {
+  for (var i = 0; i < n - 1; i += 1) {
     for (var j = i; j < n; j += 1) {
       U[i][j] = A[i][j] - dot(L[i], 0, i - 1, columna(U, j), 0, i - 1);
     }
@@ -29,35 +29,37 @@ function doolittle({json, long}) {
 
   return (
     <>
-      <div>
-        <ul>
-          <li>
-            <h3>L :</h3>
-            {L.map((e) => {
-              return <p>{`  ${e}  `}</p>;
-            })}
-          </li>
-          <li>
-            <h3>U : </h3>
-            {U.map((e) => {
-              return <p>{`  ${e}  `}</p>;
-            })}
-          </li>
-        </ul>
-      </div>
       <h1>resultado: </h1>
       <div>
         <ul>
           <li>
             <h3>L :</h3>
             {L.map((e) => {
-              return <p>{`  ${e}  `}</p>;
+              console.log(e);
+              return (
+                <table>
+                  <tr>
+                    {e.map((item) => {
+                      return <td>{item}</td>;
+                    })}
+                  </tr>
+                </table>
+              );
             })}
           </li>
           <li>
             <h3>U : </h3>
             {U.map((e) => {
-              return <p>{`  ${e}  `}</p>;
+              console.log(e);
+              return (
+                <table>
+                  <tr>
+                    {e.map((item) => {
+                      return <td>{item}</td>;
+                    })}
+                  </tr>
+                </table>
+              );
             })}
           </li>
           <li>
@@ -78,12 +80,11 @@ function doolittle({json, long}) {
   );
 }
 
-export default doolittle
-
+export default doolittle;
 
 // var A = [[4, 3, -2, -7],
 //      [3, 12, 8, -3],
 //      [2, 3, -9, 3],
 //      [1, -2, -5, 6],]
-  
+
 // var b = [20, 18, 31, 12]

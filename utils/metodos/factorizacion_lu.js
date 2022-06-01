@@ -1,4 +1,4 @@
-import { eye } from "./auxiliares.js";
+import { eye } from './auxiliares.js';
 // eye = require('auxiliares');
 import { sustitucion_progresiva, sustitucion_regresivaLU } from './sustituciones.js';
 // sustitucion_progresiva = require('sustituciones');
@@ -9,7 +9,7 @@ function pivoteo_parcial(A, n, k) {
   var fila2, mayor;
   mayor = fila2 = 0;
 
-  for (var i = k; i < n; i ++) {
+  for (var i = k; i < n; i++) {
     fila2 = Math.abs(mayor) < Math.abs(A[i][k]) ? i : fila2;
     mayor = Math.abs(mayor) < Math.abs(A[i][k]) ? A[i][k] : mayor;
   }
@@ -25,16 +25,16 @@ function cambio_fila(A, fila1, fila2) {
   return A;
 }
 
-function factorizacion_LU({json, long}) {
+function factorizacion_LU({ json, long }) {
   const jsonA = arrayA(json, long);
   let A = jsonA.ar;
   let bObject = jsonA.objeto;
-  const jsonB = arrayB(bObject,long);
+  const jsonB = arrayB(bObject, long);
   let b = jsonB.ar;
-  let n = A.length
+  let n = A.length;
 
   var L, M, P, fila2, mayor, x, z;
-  console.log("Empezo el metodo:");
+  console.log('Empezo el metodo:');
   L = eye(4);
   P = eye(4);
 
@@ -54,21 +54,58 @@ function factorizacion_LU({json, long}) {
     }
   }
 
-  console.log("Empezo la sustitucion:");
+  console.log('Empezo la sustitucion:');
   z = sustitucion_progresiva(L, n, b);
   x = sustitucion_regresivaLU(A, z);
+  
   return (
     <div>
       <ul>
-        <li><h3>A : </h3>{A}</li>
-        <li><h3>L : </h3>{L}</li>
-        <li><h3>z : </h3>{z}</li>
-        <li><h3>x : </h3>{x}</li>
+        <li>
+          <h3>U : </h3>
+          {A.map((e) => {
+            console.log(e);
+            return (
+              <table>
+                <tr>
+                  {e.map((item) => {
+                    return <td>{item}</td>;
+                  })}
+                </tr>
+              </table>
+            );
+          })}
+        </li>
+        <li>
+          <h3>L : </h3>
+          {L.map((e) => {
+            console.log(e);
+            return (
+              <table>
+                <tr>
+                  {e.map((item) => {
+                    return <td>{item}</td>;
+                  })}
+                </tr>
+              </table>
+            );
+          })}
+        </li>
+        <li>
+          <h3>z : </h3>
+          {z.map((e) => {
+            return <p>{` ~ ${e} ~ `}</p>;
+          })}
+        </li>
+        <li>
+          <h3>x : </h3>
+          {x.map((e) => {
+            return <p>{` ~ ${e} ~ `}</p>;
+          })}
+        </li>
       </ul>
     </div>
-  )
-
+  );
 }
 
 export default factorizacion_LU;
-
