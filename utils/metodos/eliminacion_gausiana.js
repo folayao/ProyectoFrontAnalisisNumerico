@@ -44,7 +44,7 @@ const eliminacion_gausiana = ({ json, long }) => {
     <>
       {x.map((item, i) => {
         console.log("ITEM", item);
-        return <p>{`x  + ${i.toString()} + = ${item.toString()}`}</p>;
+        return <p>{`x+${i.toString()} + = ${item.toString()}`}</p>;
       })}
     </>
   );

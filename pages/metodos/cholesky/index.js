@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ContainerInputs } from '../../../components/Containers';
 import Inputs from '../../../components/Inputs';
 import MatrixReader from '../../../components/MatrixReaders/MatrixReaderEliminacionGaussiana';
-
+import Image from 'next/image';
 const Index = () => {
   const [yMatrixLength, setYMatrixLength] = useState(2);
   const [matrix, setmatrix] = useState(null);
@@ -49,7 +49,7 @@ const Index = () => {
           Reset
         </button>
 
-        {showMatriz != false ? <MatrixReader matrix={matrix} long={yMatrixLength}/> : null}
+        {showMatriz != false ? <Image src="/dog.png" layout='fill'/>: null}
       </ContainerInputs>
     </>
   );

@@ -93,7 +93,7 @@ function eliminacion_gausiana_piv_total({json, long}) {
   return (
     <>
       {x.map((item, i) => {
-        return <p>{`x  + ${i.toString()} + = ${item.toString()}`}</p>;
+        return <p>{`x+${i.toString()} + = ${item.toString()}`}</p>;
       })}
     </>
   );
