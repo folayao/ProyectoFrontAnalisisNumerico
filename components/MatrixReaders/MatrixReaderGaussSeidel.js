@@ -1,9 +1,9 @@
 import { React, useRef, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import EG from '../../utils/metodos/eliminacion_gausiana';
+import EG from '../../utils/metodos/gseidel';
 import { jsontoarray } from '../../utils/jsontoarray';
 
-const MatrixReader = ({ matrix, long }) => {
+const MatrixReader = ({ matrix, long, iter, tol}) => {
   const { register, getValues, handleSubmit } = useForm({});
   const [headerslong, setHeaderslong] = useState([]);
   const [showFunc, setshowFunc] = useState(false);
@@ -29,62 +29,74 @@ const MatrixReader = ({ matrix, long }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <table>
-          <thead>
-            <tr>
-              {matrix == undefined
-                ? null
-                : headerslong.map((i, index) => {
-                    return <th key={`head-${index}`}>X{index}</th>;
-                  })}
-            </tr>
-          </thead>
-          <tbody>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <table>
+        <thead>
+          <tr>
             {matrix == undefined
               ? null
-              : matrix.map((row, indexrow) => {
-                  return (
-                    <>
-                      <tr key={`${indexrow}ptr`}>
-                        {row.map((col, indexcol) => {
-                          return (
-                            <>
-                              <td key={`${indexcol}p${indexrow}td`}>
-                                <input type='number' {...register(`${indexcol}p${indexrow}`)} />
-                              </td>
-                            </>
-                          );
-                        })}
-                      </tr>
-                    </>
-                  );
+              : headerslong.map((i, index) => {
+                  return <th key={`head-${index}`}>X{index}</th>;
                 })}
-            <h3>VTI</h3>
-            {matrix == undefined
-              ? null
-              : matrix.map((row, indexrow) => {
-                  return (
-                    <>
-                      <tr key={`${indexrow}-tr`}>
-                        <input type='number' {...register(`VTIp${indexrow}`)} />
-                      </tr>
-                    </>
-                  );
-                })}
-          </tbody>
-        </table>
+          </tr>
+        </thead>
+        <tbody>
+          {matrix == undefined
+            ? null
+            : matrix.map((row, indexrow) => {
+                return (
+                  <>
+                    <tr key={`${indexrow}ptr`}>
+                      {row.map((col, indexcol) => {
+                        return (
+                          <>
+                            <td key={`${indexcol}p${indexrow}td`}>
+                              <input type='number' {...register(`${indexcol}p${indexrow}`)} />
+                            </td>
+                          </>
+                        );
+                      })}
+                    </tr>
+                  </>
+                );
+              })}
+          <h3>VTI</h3>
+          {matrix == undefined
+            ? null
+            : matrix.map((row, indexrow) => {
+                return (
+                  <>
+                    <tr key={`${indexrow}-tr`}>
+                      <input type='number' {...register(`VTIp${indexrow}`)} />
+                    </tr>
+                  </>
+                );
+              })}
+          <h3>X</h3>
+          {matrix == undefined
+            ? null
+            : matrix.map((row, indexrow) => {
+                return (
+                  <>
+                    <tr key={`${indexrow}-tr`}>
+                      <input type='number' {...register(`x-${indexrow}`)} />
+                    </tr>
+                  </>
+                );
+              })}
+        </tbody>
+      </table>
 
-        <button
-          type='submit'
-          onClick={(e) => onSubmit(e)}
-        >
-          REALIZAR CALCULO
-        </button>
-      </form>
+      <button
+        type='submit'
+        onClick={(e) => onSubmit(e)}
+      >
+        REALIZAR CALCULO
+      </button>
+    </form>
 
-      {showFunc ? <EG json={getValues()} long={long} /> : null}
-    </>
+    {showFunc ? <EG json={getValues()} long={long} tol={tol} iter={iter}  /> : null}
+  </>
   );
 };
 

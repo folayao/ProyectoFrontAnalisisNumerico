@@ -35,13 +35,7 @@ const Index = () => {
   return (
     <>
       <ContainerInputs>
-      
-        <Inputs
-          labelTitle={'x'}
-          typeInput='number'
-          setFunction={setx}
-          value={x}
-        />  
+    
         <Inputs
           labelTitle={'iteraciones'}
           typeInput='number'
@@ -70,7 +64,7 @@ const Index = () => {
           Reset
         </button>
 
-        {showMatriz != false ? <MatrixReader matrix={matrix} long={yMatrixLength} x={x} tol={tol} iter={iter}/> : null}
+        {showMatriz != false ? <MatrixReader matrix={matrix} long={yMatrixLength} tol={tol} iter={iter}/> : null}
       </ContainerInputs>
     </>
   );

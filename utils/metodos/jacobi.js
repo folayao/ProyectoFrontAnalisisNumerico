@@ -1,18 +1,32 @@
 import { factorizar, inversa_D } from './auxiliares.js';
-import { norma, prod_matrices, prod_matriz_vector, resta_vectores, suma_matrices, suma_vectores } from './auxiliares.js';
-import {arrayA, arrayB} from '../jsontoarray';
+import {
+  norma,
+  prod_matrices,
+  prod_matriz_vector,
+  resta_vectores,
+  suma_matrices,
+  suma_vectores,
+} from './auxiliares.js';
+import { arrayA2, arrayX2, arrayVTIB } from '../jsontoarray';
 
-function jacobi({json, long, x, iter, tol}) {
-  const jsonA = arrayA(json, long);
-  let A = jsonA.ar;
+function jacobi({ json, long, iter, tol }) {
+  const jsonA = arrayA2(json, long);
   let bObject = jsonA.objeto;
-  const jsonB = arrayB(bObject, long);
+  const jsonB = arrayVTIB(bObject, long);
+  let xObject = jsonB.objeto;
+  const jsonX = arrayX2(xObject, long);
+  let A = jsonA.ar;
   let b = jsonB.ar;
+  let x = jsonX.ar;
+  console.log('A', A);
+  console.log('B', b);
+  console.log('x', x);
+
   var C, D, Di, L, T, U, cont, error, x_ant;
   var arr = factorizar(A);
-  D = arr[0]
-  L = arr[1]
-  U = arr[2]
+  D = arr[0];
+  L = arr[1];
+  U = arr[2];
   cont = 0;
   error = tol + 1;
   Di = inversa_D(D);
@@ -30,15 +44,25 @@ function jacobi({json, long, x, iter, tol}) {
   console.log(`Ite: ${cont}
 x: ${x}
 Error: ${error}`);
+
+  return (
+    <>
+      <ul>
+        <li>{`Ite: ${cont}`}</li>
+        <li>{`x: ${x} `}</li>
+        <li>{`Error: ${error}`}</li>
+      </ul>
+    </>
+  );
 }
 
-export default jacobi
+export default jacobi;
 
 // var A = [[4, 3, -2, -7],
 //      [3, 12, 8, -3],
 //      [2, 3, -9, 3],
 //      [1, -2, -5, 6],]
-  
+
 // var b = [20, 18, 31, 12]
 
 // jacobi(A, b, [2,2,2,2], 10000, 0.0005)

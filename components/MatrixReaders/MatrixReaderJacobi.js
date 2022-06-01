@@ -1,9 +1,8 @@
 import { React, useRef, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import EG from '../../utils/metodos/jacobi';
-import { jsontoarray } from '../../utils/jsontoarray';
 
-const MatrixReader = ({ matrix, long, x, iter, tol}) => {
+const MatrixReader = ({ matrix, long, iter, tol}) => {
   const { register, getValues, handleSubmit } = useForm({});
   const [headerslong, setHeaderslong] = useState([]);
   const [showFunc, setshowFunc] = useState(false);
@@ -72,6 +71,18 @@ const MatrixReader = ({ matrix, long, x, iter, tol}) => {
                     </>
                   );
                 })}
+            <h3>X</h3>
+            {matrix == undefined
+              ? null
+              : matrix.map((row, indexrow) => {
+                  return (
+                    <>
+                      <tr key={`${indexrow}-tr`}>
+                        <input type='number' {...register(`x-${indexrow}`)} />
+                      </tr>
+                    </>
+                  );
+                })}
           </tbody>
         </table>
 
@@ -83,7 +94,7 @@ const MatrixReader = ({ matrix, long, x, iter, tol}) => {
         </button>
       </form>
 
-      {showFunc ? <EG json={getValues()} long={long} x={x} tol={tol} iter={iter}  /> : null}
+      {showFunc ? <EG json={getValues()} long={long} tol={tol} iter={iter}  /> : null}
     </>
   );
 };
