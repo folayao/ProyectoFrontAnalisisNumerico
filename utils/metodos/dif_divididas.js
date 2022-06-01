@@ -36,11 +36,25 @@ function dif_divididas({ json, long }) {
   }
 
   return (
-    <ul>
-      {difdiv.map((e) => {
-        return <li>{e}</li>;
-      })}
-    </ul>
+    <table>
+      <tbody>
+        {difdiv.map((e, index) => {
+          console.log(e);
+          return (
+            <tr>
+              {e.map((i) => {
+                console.log(i);
+                return (
+                  <>
+                    <td>{i}</td>
+                  </>
+                );
+              })}
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
   );
 }
 export default dif_divididas;

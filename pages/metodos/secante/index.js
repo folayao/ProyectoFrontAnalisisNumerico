@@ -3,6 +3,7 @@ import { ContainerInputs } from '../../../components/Containers';
 import Inputs from '../../../components/Inputs';
 import Secante from '../../../utils/metodos/secante';
 
+
 const Index = () => {
   const [constFunction, setconstFunction] = useState('');
   const [x1, setx1] = useState(0);
@@ -22,7 +23,7 @@ const Index = () => {
   };
 
   return (
-    <>
+    <div className={style['diver']}>
       <ContainerInputs>
         <Inputs
           labelTitle={'f'}
@@ -81,7 +82,7 @@ const Index = () => {
       ) : (
         <>NADA</>
       )}
-    </>
+    </div>
   );
 };
 

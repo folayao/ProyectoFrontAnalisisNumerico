@@ -1,8 +1,9 @@
 import { eliminacion_gausiana_piv_parcial } from './egpp';
 import { arrayX, arrayY } from '../jsontoarray';
-import {zeros} from 'mathjs';
+import { zeros } from 'mathjs';
+import TableGenerator from '../../components/TableGenerator';
 
-function splines_lineal({json, long}) {
+function splines_lineal({ json, long }) {
   let first = arrayX(json, long);
   let x = first.ar;
   let y = arrayY(first.objeto).ar;
@@ -41,16 +42,23 @@ function splines_lineal({json, long}) {
   console.log(x);
   return (
     <>
-    <ul>
-      {x.map((e) => {
-        return <li>{e}</li>;
-      })}
-    </ul>
+    <TableGenerator headers={[]} table={matriz}/>
+    <h2>X</h2>
+      <table>
+        {x.map((e) => {
+          console.log(e);
+          return (
+            <tbody>
+              <td>{e}</td>
+            </tbody>
+          );
+        })}
+      </table>
     </>
   );
 }
 
-export default splines_lineal
+export default splines_lineal;
 
 // X = [1, 2, 4];
 // Y = [141, 112.7, 125.63];

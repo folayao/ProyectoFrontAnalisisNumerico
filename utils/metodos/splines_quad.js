@@ -2,6 +2,7 @@
 import { columna, dot, eye, zero, zeroV } from './auxiliares.js';
 import { eliminacion_gausiana_piv_parcial } from './egpp';
 import { arrayX, arrayY } from '../jsontoarray';
+import TableGenerator from '../../components/TableGenerator';
 
 
 function splines_quad({json, long}) {
@@ -59,11 +60,14 @@ function splines_quad({json, long}) {
  let resultados = eliminacion_gausiana_piv_parcial(matriz,vector_terminos)
   
  return (
+   <>
+   <TableGenerator headers={[]} table={matriz}/>
   <ul>
     {resultados.map((e) => {
       return <li>{e}</li>;
     })}
   </ul>
+    </>
 );
 }
 

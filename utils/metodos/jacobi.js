@@ -47,11 +47,13 @@ Error: ${error}`);
 
   return (
     <>
-      <ul>
-        <li>{`Ite: ${cont}`}</li>
-        <li>{`x: ${x} `}</li>
-        <li>{`Error: ${error}`}</li>
-      </ul>
+      <table>
+        <tbody>
+          <td>{`Ite: ${cont}`}</td>
+          <td>{`x: ${x} `}</td>
+          <td>{`Error: ${error}`}</td>
+        </tbody>
+      </table>
     </>
   );
 }
