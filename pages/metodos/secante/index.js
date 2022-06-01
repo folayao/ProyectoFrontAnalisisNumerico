@@ -23,7 +23,7 @@ const Index = () => {
   };
 
   return (
-    <div className={style['diver']}>
+    <div>
       <ContainerInputs>
         <Inputs
           labelTitle={'f'}

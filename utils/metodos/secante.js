@@ -1,5 +1,6 @@
 import tabulate from 'tabulate';
 import TableGenerator from './../../components/TableGenerator';
+
 function Secante({ constFunction, x0, x1, tol, maxIter, tError }) {
   let f = Function('x', 'return ' + constFunction);
   let den, error, headers, ite, table, x2;
